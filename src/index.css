@@ -1,13 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+@import "react-datepicker/dist/react-datepicker.css";
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: "Open Sans", sans-serif;
 }
+
+.error-text {
+  margin: 0;
+  color: #a30000;
+}
+
+.ml-0 {
+  margin-left: 0 !important;
+}
+
+.mb-20 {
+  margin: 0 0 20px 0 !important;
+}
+
+/* react-date-picker styles START*/
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker,
+.react-datepicker__header {
+  background: transparent;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-box-shadow: 10px 10px 6px 1px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: 10px 10px 6px 1px rgba(0, 0, 0, 0.44);
+  box-shadow: 10px 10px 6px 1px rgba(0, 0, 0, 0.44);
+}
+
+.react-datepicker__header {
+  box-shadow: 4px 2px 4px 1px rgba(0, 0, 0, 0.44) !important;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .react-datepicker,
+  .react-datepicker__header {
+    -webkit-backdrop-filter: blur(5px) !important;
+    backdrop-filter: blur(5px) !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+  }
+}
+/* react-date-picker styles END*/
