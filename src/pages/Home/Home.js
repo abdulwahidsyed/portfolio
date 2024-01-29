@@ -34,6 +34,8 @@ const Home = () => {
   const workExpRef = useRef();
   const educationRef = useRef();
 
+  const refs = [basicRef, skillsRef, projectRef, workExpRef, educationRef];
+
   const {
     inputsBasic,
     inputsEducation,
@@ -48,7 +50,7 @@ const Home = () => {
 
     const dat = inputsBasic.map((el) => ({
       ...el,
-      value: e.name === name ? value : el.value,
+      value: el.name === name ? value : el.value,
     }));
 
     dispatch(updateBasicInputs(dat));
@@ -143,9 +145,7 @@ const Home = () => {
     dispatch(updateNewProject(dat));
   };
 
-  const refs = [basicRef, skillsRef, projectRef, workExpRef, educationRef];
-
-  const onClickScroll = (i) => {
+  const navigateToSection = (i) => {
     const myRef = refs[i];
     if (myRef.current) {
       const offsetTop =
@@ -220,7 +220,7 @@ const Home = () => {
         onChange={onChangeEducation}
         removeEducation={removeEducationLoc}
       />
-      <FooterHome selected={visibleComponent} onClick={onClickScroll} />
+      <FooterHome selected={visibleComponent} onClick={navigateToSection} />
     </StyledLayout>
   );
 };

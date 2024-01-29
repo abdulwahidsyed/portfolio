@@ -7,7 +7,6 @@ import {
   StyledInputLabel,
   StyledInputSection,
 } from "../../../components/UI/Styled";
-import { InputsBasic } from "./InputsBasic";
 import { memo } from "react";
 import Input from "../../../components/UI/Input/Input";
 
@@ -16,7 +15,6 @@ const BasicFieldsCtn = ({ inputsBasic, onChange, basicRef }) => {
     <StyledCtn ref={basicRef}>
       <StyledHeadingMedium className="mb-20">Basic fields</StyledHeadingMedium>
       <StyledFlexSectionLoc style={{ margin: "0 0 10px 0 " }}>
-        {/* <InputsBasic inputs={inputsBasic} onChange={onChange} /> */}
         {inputsBasic.map((input, i) => (
           <StyledInpBoxLoc
             key={input.name}

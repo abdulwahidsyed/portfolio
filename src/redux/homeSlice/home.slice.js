@@ -21,6 +21,11 @@ const homeSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    updateAllInputs: (state, action) => {
+      Object.keys(action.payload).forEach((key) => {
+        state[key] = action.payload[key];
+      });
+    },
     updateBasicInputs: (state, action) => {
       state.inputsBasic = action.payload;
     },
@@ -83,6 +88,8 @@ const homeSlice = createSlice({
 });
 
 export const {
+  updateAllInputs,
+
   updateBasicInputs,
 
   addNewSkill,

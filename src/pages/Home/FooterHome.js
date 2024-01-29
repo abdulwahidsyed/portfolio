@@ -11,7 +11,6 @@ export const FooterHome = ({ onClick, selected }) => {
     3: "Work Experience",
     4: "Education",
   };
-  console.log("my ref", items[selected]);
 
   return (
     <Ctn>

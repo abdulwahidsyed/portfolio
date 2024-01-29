@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ellipsisStyle } from "./reusableCSS.styled";
+import { StyledParagraphSmall } from "./Typography.styled";
 
 export const StyledButton = styled.button`
   cursor: pointer;
@@ -94,5 +95,18 @@ export const StyledRedButton = styled.button`
     -webkit-backdrop-filter: blur(5px) !important;
     backdrop-filter: blur(5px) !important;
     background: #ffb1b1 !important;
+  }
+`;
+
+export const StyledCloseBtn = styled(StyledParagraphSmall)`
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  margin: 0;
+  cursor: pointer;
+  padding: 4px 20px;
+
+  &:hover {
+    background: #1715150f;
   }
 `;

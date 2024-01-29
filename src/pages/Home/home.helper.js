@@ -154,6 +154,14 @@ export const inputs_work_experience_mock = [
     value: "",
   },
   {
+    name: "description",
+    label: "Description",
+    placeholder: "Description",
+    type: "textarea",
+    rows: 2,
+    value: "",
+  },
+  {
     name: "bulletPointsWorkExp",
     label: "Bullet Points",
     placeholder: "Bullet Points",
@@ -213,3 +221,47 @@ export const inputs_projects_mock = [
     value: [],
   },
 ];
+
+export const populateData = () => {
+  const res = {
+    basicDetails: {
+      name: "Syed Abdul Wahid",
+      designation: "MERN stack developer",
+      mail: "abdulwahid.syed@outlook.com",
+      phone: "+91 9581122911",
+      linkedinProfile: "",
+      githubProfile: "https://github.com/abdulwahidsyed",
+      description: "Need to add...",
+    },
+    commonSkills: [
+      {
+        frontend: "React, Angular, javascript, html, css",
+        backend: "Node.js, Express.js, graphQL",
+        databases: "MongoDB, SQL",
+        developmentTools: "Jira, github, gitlab, figma",
+      },
+    ],
+  };
+
+  const dat = {
+    inputsBasic: mapHelper([...inputs_basic_mock], res.basicDetails),
+    inputsSkills: generateMatrix(res.commonSkills, [
+      ...inputs_common_skills_mock,
+    ]),
+  };
+  return dat;
+};
+
+const mapHelper = (arr, dataObj) => {
+  return arr.map((input) => ({
+    ...input,
+    value: dataObj[input.name] || input.value,
+  }));
+};
+
+const generateMatrix = (matrixArr, mock) => {
+  return matrixArr.map((resObj) => {
+    const inputArr = mapHelper(mock, resObj);
+    return inputArr;
+  });
+};
