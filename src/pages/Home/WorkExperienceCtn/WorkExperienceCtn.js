@@ -9,15 +9,17 @@ import {
   StyledMatrixChild,
   StyledMatrixCtn,
 } from "../../../components/UI/Styled";
+import { memo } from "react";
 
-export const WorkExperienceCtn = ({
+const WorkExperienceCtn = ({
+  workExpRef,
   addWorkExperience,
   removeWorkExperience,
   onChange,
   inputsMatrix,
 }) => {
   return (
-    <Container>
+    <Container ref={workExpRef}>
       <StyledFlex>
         <StyledHeadingMedium className="mb-20">
           Work Experience{" "}
@@ -51,6 +53,8 @@ export const WorkExperienceCtn = ({
     </Container>
   );
 };
+
+export default memo(WorkExperienceCtn);
 
 const Container = styled(StyledInputSection)`
   display: block;

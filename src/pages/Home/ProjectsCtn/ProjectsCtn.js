@@ -9,15 +9,17 @@ import {
   StyledMatrixChild,
   StyledMatrixCtn,
 } from "../../../components/UI/Styled";
+import { memo } from "react";
 
-export const ProjectsCtn = ({
+const ProjectsCtn = ({
+  projectRef,
   inputsMatrix,
   addNewProject,
   removeProject,
   onChange,
 }) => {
   return (
-    <Container>
+    <Container ref={projectRef}>
       <StyledFlex>
         <StyledHeadingMedium className="mb-20">Projects</StyledHeadingMedium>
         <Button onClick={addNewProject}>Add New Project</Button>
@@ -44,8 +46,12 @@ export const ProjectsCtn = ({
   );
 };
 
+export default memo(ProjectsCtn);
+
 const Container = styled(StyledInputSection)`
   display: block;
+  // max-height: 400px;
+  // overflow: auto;
 `;
 
 const StyledRemoveBtn = styled(Button)`

@@ -13,24 +13,7 @@ export const inputs_basic_mock = [
     type: "text",
     value: "",
   },
-  {
-    name: "description",
-    label: "Description",
-    placeholder: "Description",
-    type: "textarea",
-    value: "",
-  },
-  // {
-  //   name: "date",
-  //   label: "",
-  //   placeholder: "Date",
-  //   type: "date",
-  //   isError: false,
-  //   value: "",
-  // },
-];
 
-export const inputs_social_mock = [
   {
     name: "mail",
     label: "Mail",
@@ -59,6 +42,21 @@ export const inputs_social_mock = [
     type: "text",
     value: "",
   },
+  {
+    name: "description",
+    label: "Description",
+    placeholder: "Description",
+    type: "textarea",
+    value: "",
+  },
+  // {
+  //   name: "date",
+  //   label: "",
+  //   placeholder: "Date",
+  //   type: "date",
+  //   isError: false,
+  //   value: "",
+  // },
 ];
 
 export const inputs_common_skills_mock = [

@@ -55,8 +55,8 @@ export const StyledFooter = styled.div`
   z-index: 2;
   background: linear-gradient(
     to right bottom,
-    rgba(225, 225, 225, 0.4),
-    rgba(225, 225, 225, 0)
+    rgb(21 21 21),
+    rgb(134 134 134 / 73%)
   );
   color: #333;
   font-family: sans-serif;

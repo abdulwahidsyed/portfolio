@@ -9,15 +9,17 @@ import {
   StyledMatrixCtn,
 } from "../../../components/UI/Styled";
 import Input from "../../../components/UI/Input/Input";
+import { memo } from "react";
 
-export const EducationSection = ({
+const EducationSection = ({
+  educationRef,
   addNewEducationSection,
   inputsMatrix,
   onChange,
   removeEducation,
 }) => {
   return (
-    <Container>
+    <Container ref={educationRef}>
       <StyledFlex>
         <StyledHeadingMedium className="mb-20">Education</StyledHeadingMedium>
         <Button onClick={addNewEducationSection}>Add New Education</Button>
@@ -43,6 +45,8 @@ export const EducationSection = ({
     </Container>
   );
 };
+
+export default memo(EducationSection);
 
 const Container = styled(StyledInputSection)`
   display: block;

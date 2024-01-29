@@ -9,15 +9,17 @@ import {
 } from "../../../components/UI/Styled";
 import { Button } from "../../../components/UI/Button/Button";
 import Input from "../../../components/UI/Input/Input";
+import { memo } from "react";
 
 export const SkillsCtn = ({
+  skillsRef,
   addNewSkillInput,
   inputsMatrix,
   onChange,
   removeSkillInput,
 }) => {
   return (
-    <Container>
+    <Container ref={skillsRef}>
       <StyledFlex>
         <StyledHeadingMedium className="mb-20">Skills</StyledHeadingMedium>
         <Button onClick={addNewSkillInput}>Add New Skill</Button>
@@ -46,6 +48,8 @@ export const SkillsCtn = ({
     </Container>
   );
 };
+
+export default memo(SkillsCtn);
 
 const Container = styled(StyledInputSection)`
   display: block;

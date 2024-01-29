@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   inputs_basic_mock,
-  inputs_social_mock,
   inputs_common_skills_mock,
   inputs_new_skills_mock,
   inputs_education_mock,
@@ -10,23 +9,20 @@ import {
 } from "../../pages/Home/home.helper";
 
 const initialState = {
-  inputs: {
-    inputsBasic: [...inputs_basic_mock],
-    inputsSocial: [...inputs_social_mock],
-  },
+  inputsBasic: [...inputs_basic_mock],
   inputsSkills: [[...inputs_common_skills_mock]],
   inputsEducation: [[...inputs_education_mock]],
   inputsWorkExperience: [[...inputs_work_experience_mock]],
   inputsProjects: [[...inputs_projects_mock]],
+  visibleComponent: "",
 };
 
 const homeSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    updateInputs: (state, action) => {
-      const { dat, objectKey } = action.payload;
-      state.inputs[objectKey] = dat;
+    updateBasicInputs: (state, action) => {
+      state.inputsBasic = action.payload;
     },
 
     // new skills Start
@@ -79,12 +75,15 @@ const homeSlice = createSlice({
       const index = action.payload;
       state.inputsEducation.splice(index, 1);
     },
+    updateVisibleComponent: (state, action) => {
+      state.visibleComponent = action.payload;
+    },
     // new Education ends
   },
 });
 
 export const {
-  updateInputs,
+  updateBasicInputs,
 
   addNewSkill,
   removeSkill,
@@ -101,5 +100,7 @@ export const {
   addWorkExperience,
   removeWorkExperience,
   updateWorkExperience,
+
+  updateVisibleComponent,
 } = homeSlice.actions;
 export default homeSlice.reducer;
