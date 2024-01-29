@@ -37,6 +37,7 @@ const StyledParagraphLoc = styled(StyledParagraph)`
   color: white;
   cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.1, 1.1);
+  white-space: nowrap;
 
   transform: ${(props) => {
     if (props.selected) {
@@ -45,4 +46,8 @@ const StyledParagraphLoc = styled(StyledParagraph)`
       return "scale(1.2)";
     } else return "unset";
   }};
+
+  ${mobile`
+   font-size: 14px;
+  `}
 `;
