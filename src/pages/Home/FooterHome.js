@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { StyledParagraph, StyledFooter } from "../../components/UI/Styled";
+import { mobile } from "../../components/UI/Styled/media-queries";
 
 export const FooterHome = ({ onClick, selected }) => {
   const items = {
