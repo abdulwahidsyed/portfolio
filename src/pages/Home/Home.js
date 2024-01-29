@@ -172,11 +172,8 @@ const Home = () => {
       },
       {
         root: null,
-        threshold: 0.5,
-        rootMargin: "300px",
-        // rootMargin: "-200px 0px -200px 0px",
-        // threshold: [0, 0.25, 0.5, 0.75, 1],
-        // rootMargin: "0px",
+        threshold: 0.8,
+        rootMargin: "100px",
       }
     );
 
