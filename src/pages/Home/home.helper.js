@@ -186,9 +186,9 @@ export const inputs_projects_mock = [
     value: "",
   },
   {
-    name: "projectDuration",
-    label: "Project Duration",
-    placeholder: "Jan-2020 - Dec 2021",
+    name: "companyName",
+    label: "Company name",
+    placeholder: "Add which company you worked on this project",
     type: "text",
     value: "",
   },
@@ -214,7 +214,7 @@ export const inputs_projects_mock = [
     value: "",
   },
   {
-    name: "rolesAndResponsibilitios",
+    name: "rolesAndResponsibilities",
     label: "Roles and Responsibilities",
     placeholder: "Roles and Responsibilities",
     type: "bulletPoints",
@@ -226,21 +226,115 @@ export const populateData = () => {
   const res = {
     basicDetails: {
       name: "Syed Abdul Wahid",
-      designation: "MERN stack developer",
+      designation: "MERN stack developer (React, Node.js)",
       mail: "abdulwahid.syed@outlook.com",
       phone: "+91 9581122911",
-      linkedinProfile: "",
+      linkedinProfile: "www.linkedin.com/in/abdul-wahid-syed-8b5728265",
       githubProfile: "https://github.com/abdulwahidsyed",
-      description: "Need to add...",
+      description:
+        "With 5+ years of software development experience, I have contributed to projects small and large, demonstrating my professionalism with extremely high quality and reliability. Being a professional developer means understanding all the requirements of a project and finding the best way to implement it to a high-quality standard. As a senior full-stack engineer, I am proficient with modern web languages and I always focus on project structures and coding style, and etc.  I'm considering myself one of the most qualified engineers.",
     },
     commonSkills: [
       {
-        frontend: "React, Angular, javascript, html, css",
+        frontend:
+          "React, Redux, RTK, javascript, html, css, Angular, jest, RTL",
         backend: "Node.js, Express.js, graphQL",
         databases: "MongoDB, SQL",
         developmentTools: "Jira, github, gitlab, figma",
       },
     ],
+    education: [
+      {
+        education: "Diploma",
+        collegeName: "AL-Huda Polytechnic college",
+        duration: "2012-2015",
+        collegeAddress: "Nellore, Andhra Pradesh, India",
+      },
+      {
+        education: "2Diploma2",
+        collegeName: "2AL-Huda Polytechnic college",
+        duration: "2 2012-2015",
+        collegeAddress: "2 Nellore, Andhra Pradesh, India",
+      },
+    ],
+    projects: [
+      {
+        projectName: "CSL(Customer Secure Login)",
+        role: "Senior Full Stack Engineer",
+        companyName: "Criska Business Consulting PVT LTD",
+        projectDuration: "01-09-2023 to Present",
+        skillsUsed: [
+          "Frontend: React, Redux Tool kit, MUX-component library, jest, RTL(testing)",
+          "Backend: Node.js, Express.js",
+          "Databases: SQL",
+        ],
+        projectDescription:
+          "Created a React & node.js application from scratch for Manulife's Insurance application for the client johnhancock. Integrated eslint, husky, lint-staged, prettier, adobe datalayer etc and combined of these tools, a maintainable, scallable, high quality frontend application got created",
+        rolesAndResponsibilities: [
+          "Code reviews, Application flow and integrated technology's demos were getting performed through out the whole crew members",
+          "Collaborating with team members to understand project requirements and designing software solutions that meet those requirements.",
+          "Writing clean, well-documented and maintainable code that follows industry best practices and standards.",
+          "Testing and validating software solutions to ensure that they meet quality standards and functional requirements.",
+          "Developing code structures that are agile and easy to read and understand.",
+        ],
+      },
+      {
+        projectName: "CGI superset",
+        role: "Senior Software Engineer",
+        companyName:
+          "CGI Information Systems and Management Consultants Pvt. Ltd.",
+        projectDuration: "19-09-2022 to 25-08-2023",
+        skillsUsed: [
+          "React, Superset's opensource Micro Frontend, jest, RTL(testing), html, css, javascript",
+        ],
+        projectDescription:
+          "Worked on a new product which is based on superset, an opensource micro-frontend application. This application is all about creating charts and maps based on existing superset's elements and components with the theming of CGI",
+        rolesAndResponsibilities: [
+          "Collaborating with team members to understand project requirements and designing software solutions that meet those requirements.",
+          "Writing clean, well-documented and maintainable code that follows industry best practices and standards.",
+          "Testing and validating software solutions to ensure that they meet quality standards and functional requirements.",
+          "Developing code structures that are agile and easy to read and understand.",
+        ],
+      },
+      {
+        projectName: "Warehouse Network App",
+        role: "Frontend Engineer",
+        companyName: "Keystack Technologies PVT LTD",
+        projectDuration: "5-02-2021 to 18-09-2022",
+        skillsUsed: [
+          "React, RTK(Redux Toolkit), MUI(material UI), jest, RTL(testing), html, css, javascript",
+        ],
+        projectDescription:
+          "A Warehouse application that shows..., Need to update",
+        rolesAndResponsibilities: [
+          "Code reviews, Application flow and integrated technology's demos were getting performed through out the whole crew members",
+          "Collaborating with team members to understand project requirements and designing software solutions that meet those requirements.",
+          "Writing clean, well-documented and maintainable code that follows industry best practices and standards.",
+          "Testing and validating software solutions to ensure that they meet quality standards and functional requirements.",
+          "Developing code structures that are agile and easy to read and understand.",
+        ],
+      },
+      {
+        projectName: "W-360 (Warehouse 360)",
+        role: "Frontend Engineer",
+        companyName: "Keystack Technologies PVT LTD",
+        projectDuration: "10-01-2019 to 4-02-2021",
+        skillsUsed: ["React, Bootstrap, jest, Enzyme, html, css, javascript"],
+        projectDescription:
+          "A Warehouse application that shows..., Need to update",
+        rolesAndResponsibilities: [],
+      },
+      {
+        projectName: "",
+        role: "Frontend Engineer",
+        companyName: "Keystack Technologies PVT LTD",
+        projectDuration: "10-03-2018 to 9-01-2019",
+        skillsUsed: ["React, Bootstrap,  jest, Enzyme, html, css, javascript"],
+        projectDescription: "",
+        rolesAndResponsibilities: [],
+      },
+    ],
+    workExperience: [],
   };
 
   const dat = {
@@ -248,6 +342,8 @@ export const populateData = () => {
     inputsSkills: generateMatrix(res.commonSkills, [
       ...inputs_common_skills_mock,
     ]),
+    inputsEducation: generateMatrix(res.education, [...inputs_education_mock]),
+    inputsProjects: generateMatrix(res.projects, [...inputs_projects_mock]),
   };
   return dat;
 };
@@ -265,3 +361,29 @@ const generateMatrix = (matrixArr, mock) => {
     return inputArr;
   });
 };
+
+const mapPayloadHelper = (dat) => {
+  return dat.reduce((acu, cur) => {
+    const k = { ...acu };
+    k[cur.name] = cur.value;
+    return k;
+  }, {});
+};
+
+const mapMatrixHelper = (dat) => {
+  return dat.map((el) => mapPayloadHelper(el));
+};
+
+export const generateSummaryHelper = (dat) => {
+  const obj = {
+    basicDetails: mapPayloadHelper(dat.inputsBasic),
+    commonSkills: mapMatrixHelper(dat.inputsSkills),
+    education: mapMatrixHelper(dat.inputsEducation),
+    projects: mapMatrixHelper(dat.inputsProjects),
+    workExperience: mapMatrixHelper(dat.inputsWorkExperience),
+  };
+
+  return obj;
+};
+
+// keystack from 10-03-2018 to 31-08-2022 ----- 4years 5months 30days

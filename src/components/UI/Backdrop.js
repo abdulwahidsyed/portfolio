@@ -23,6 +23,7 @@ const StyledBackdrop = styled.div`
   left: 0;
   z-index: 999;
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 
   animation: ${fadeIn} 0.3s ease-in-out;
 `;

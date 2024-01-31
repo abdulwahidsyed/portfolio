@@ -15,6 +15,7 @@ const initialState = {
   inputsWorkExperience: [[...inputs_work_experience_mock]],
   inputsProjects: [[...inputs_projects_mock]],
   visibleComponent: "",
+  summary: null,
 };
 
 const homeSlice = createSlice({
@@ -84,6 +85,11 @@ const homeSlice = createSlice({
       state.visibleComponent = action.payload;
     },
     // new Education ends
+
+    // generateSummary
+    generateSummary: (state, action) => {
+      state.summary = action.payload;
+    },
   },
 });
 
@@ -109,5 +115,6 @@ export const {
   updateWorkExperience,
 
   updateVisibleComponent,
+  generateSummary,
 } = homeSlice.actions;
 export default homeSlice.reducer;

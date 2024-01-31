@@ -1,9 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "../Button/Button";
-import { StyledBulletPointsCtn, StyledInput, StyledRow } from "../Styled";
+import {
+  StyledBulletPointsCtn,
+  StyledInput,
+  StyledRow,
+  StyledTextarea,
+} from "../Styled";
 
 export const BulletPointInput = ({ onChange, value, type, ...props }) => {
   const [isErrorIndex, setIsErrorIndex] = useState(null);
+  const textAreaRef = useRef();
 
   useEffect(() => {
     setIsErrorIndex(null);
@@ -57,16 +63,30 @@ export const BulletPointInput = ({ onChange, value, type, ...props }) => {
     onChange(newEvent, type);
   };
 
+  const adjustHeight = () => {
+    if (textAreaRef.current) {
+      textAreaRef.current.style.height = "auto"; // Reset the height
+      textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`; // Adjust to content
+    }
+  };
+
+  useEffect(() => {
+    adjustHeight();
+  }, []);
+
   return (
     <StyledBulletPointsCtn>
       {valueArray.map((point, i) => (
         <StyledRow>
-          <StyledInput
+          <StyledTextarea
+            ref={textAreaRef}
+            onInput={adjustHeight}
             value={point}
             onChange={(e) => onChangeLoc(e, i)}
             type="text"
             $isError={isErrorIndex === i}
             {...props}
+            rows="1"
           />
           {i === valueArray.length - 1 ? (
             <Button onClick={() => onAddRow(point, i)}>Add</Button>

@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 const Router = () => {
   const Home = lazy(() => import("./pages/Home/Home"));
+  const Generator = lazy(() => import("./pages/Generator/Generator"));
   const NoMatchRoute = lazy(() => import("./pages/Errors/NoMatchRoute"));
   const Templates = lazy(() => import("./pages/Templates/Templates"));
   const Library = lazy(() => import("./pages/Library/Library"));
@@ -14,6 +15,14 @@ const Router = () => {
         element={
           <Suspense>
             <Home />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/generator"
+        element={
+          <Suspense>
+            <Generator />
           </Suspense>
         }
       />

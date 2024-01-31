@@ -9,7 +9,7 @@ export const StyledHeadingBig = styled.h1`
   font-weight: 600;
   line-height: 52px;
   letter-spacing: -0.144px;
-  margin: 20px;
+  margin: 20px 0;
 `;
 
 export const StyledHeadingMedium = styled.h2`
@@ -18,7 +18,7 @@ export const StyledHeadingMedium = styled.h2`
   font-weight: 600;
   line-height: 35.2px;
   letter-spacing: 0.21px;
-  margin: 20px;
+  margin: 20px 0;
 `;
 
 export const StyledHeading = styled.h3`
@@ -27,7 +27,7 @@ export const StyledHeading = styled.h3`
   font-weight: 600;
   line-height: 28px;
   letter-spacing: 0.21px;
-  margin: 0 20px;
+  margin: 12px 0;
 `;
 
 export const StyledHeadingSmall = styled.h2`
@@ -42,7 +42,7 @@ export const StyledHeadingSmall = styled.h2`
 
 export const StyledParagraph = styled.p`
   color: rgb(22, 22, 22);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 22.4px;
   letter-spacing: 0px;
@@ -50,7 +50,7 @@ export const StyledParagraph = styled.p`
 
 export const StyledParagraphBold = styled.p`
   color: rgb(22, 22, 22);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 22.4px;
   letter-spacing: 0px;
@@ -58,7 +58,7 @@ export const StyledParagraphBold = styled.p`
 
 export const StyledParagraphGray = styled.p`
   color: rgb(80, 80, 80);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 22.4px;
   letter-spacing: 0px;
@@ -66,7 +66,7 @@ export const StyledParagraphGray = styled.p`
 
 export const StyledParagraphSmall = styled.p`
   color: rgb(80, 80, 80);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   line-height: 18.2px;
   letter-spacing: 0px;
@@ -76,7 +76,7 @@ export const StyledParagraphSmall = styled.p`
 
 export const StyledAnchor = styled.p`
   color: rgb(0, 101, 179);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 18.2px;
   letter-spacing: 0px;

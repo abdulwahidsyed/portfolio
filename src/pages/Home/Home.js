@@ -16,17 +16,22 @@ import {
   updateSkills,
   updateWorkExperience,
   updateVisibleComponent,
+  generateSummary,
 } from "../../redux/homeSlice/home.slice";
 import BasicFieldsCtn from "./BasicFieldsCtn/BasicFieldsCtn";
 import SkillsCtn from "./SkillsCtn/SkillsCtn";
 import EducationSection from "./EducationSection/EducationSection";
 import WorkExperienceCtn from "./WorkExperienceCtn/WorkExperienceCtn";
 import ProjectsCtn from "./ProjectsCtn/ProjectsCtn";
-import { FooterHome } from "./FooterHome";
 import { useCallback, useRef } from "react";
+import { FooterHome } from "./FooterHome";
+import { NavigatorButtons } from "../../components/NavigatorButtons/NavigatorButtons";
+import { useNavigate } from "react-router-dom";
+import { generateSummaryHelper } from "./home.helper";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const basicRef = useRef();
   const skillsRef = useRef();
@@ -158,6 +163,19 @@ const Home = () => {
     }
   };
 
+  const navigateHandler = (type) => {
+    const dat = {
+      inputsBasic,
+      inputsEducation,
+      inputsWorkExperience,
+      inputsSkills,
+      inputsProjects,
+    };
+    const payload = generateSummaryHelper(dat);
+    dispatch(generateSummary(payload));
+    navigate("/generator");
+  };
+
   const callbackRef = useCallback(() => {
     const observer = new IntersectionObserver(
       (entries, observer) => {
@@ -220,6 +238,7 @@ const Home = () => {
         onChange={onChangeEducation}
         removeEducation={removeEducationLoc}
       />
+      <NavigatorButtons navigateHandler={navigateHandler} isInitialPage />
       <FooterHome selected={visibleComponent} onClick={navigateToSection} />
     </StyledLayout>
   );

@@ -73,7 +73,6 @@ export const StyledFooter = styled.div`
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
-    // background-color: rgba(112, 112, 112, 0.11);
   }
 `;
 
