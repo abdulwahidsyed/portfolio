@@ -7,7 +7,7 @@ import {
 } from "../../components/UI/Styled";
 import { useMemo } from "react";
 
-export const SkillsGenerator = ({ data }) => {
+export const SkillsGenerator = ({ data = [] }) => {
   const basicData = useMemo(() => {
     return { ...data[0] };
   }, [data]);
@@ -20,24 +20,25 @@ export const SkillsGenerator = ({ data }) => {
     } else return null;
   }, [data]);
 
+  if (!data.length) return;
   return (
     <StyledCtn>
       <StyledHeading>Skills</StyledHeading>
       <StyledBox>
         <StyledParagraphBold>Frontend-End: </StyledParagraphBold>
-        <StyledParagraph>{basicData.frontend}</StyledParagraph>
+        <StyledParagraph> {basicData.frontend}</StyledParagraph>
       </StyledBox>
       <StyledBox>
         <StyledParagraphBold>Back-End: </StyledParagraphBold>
-        <StyledParagraph>{basicData.backend}</StyledParagraph>
+        <StyledParagraph> {basicData.backend}</StyledParagraph>
       </StyledBox>
       <StyledBox>
         <StyledParagraphBold>Databases: </StyledParagraphBold>
-        <StyledParagraph>{basicData.databases}</StyledParagraph>
+        <StyledParagraph> {basicData.databases}</StyledParagraph>
       </StyledBox>
       <StyledBox>
         <StyledParagraphBold>Development Tools: </StyledParagraphBold>
-        <StyledParagraph>{basicData.developmentTools}</StyledParagraph>
+        <StyledParagraph> {basicData.developmentTools}</StyledParagraph>
       </StyledBox>
 
       {additionalSkills &&
@@ -58,6 +59,7 @@ const StyledCtn = styled.div`
 
 const StyledBox = styled.div`
   display: flex;
+  gap: 4px;
   & p {
     margin: 10px 0;
   }

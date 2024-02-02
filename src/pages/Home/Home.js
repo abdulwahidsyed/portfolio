@@ -48,6 +48,7 @@ const Home = () => {
     inputsSkills,
     inputsProjects,
     visibleComponent,
+    summary,
   } = useSelector((st) => st.home);
 
   const onChange = (e) => {
@@ -56,6 +57,7 @@ const Home = () => {
     const dat = inputsBasic.map((el) => ({
       ...el,
       value: el.name === name ? value : el.value,
+      isError: el.name === name ? false : el.isError,
     }));
 
     dispatch(updateBasicInputs(dat));
@@ -163,7 +165,22 @@ const Home = () => {
     }
   };
 
+  const validateInputs = () => {
+    let error = false;
+    const inps = inputsBasic.map((el) => {
+      const k = el.isRequired && !el.value;
+      if (!error && k) error = true;
+      return { ...el, isError: k };
+    });
+    dispatch(updateBasicInputs(inps));
+
+    return error;
+  };
+
   const navigateHandler = (type) => {
+    const isError = validateInputs();
+    if (isError) return;
+
     const dat = {
       inputsBasic,
       inputsEducation,
@@ -171,8 +188,11 @@ const Home = () => {
       inputsSkills,
       inputsProjects,
     };
-    const payload = generateSummaryHelper(dat);
-    dispatch(generateSummary(payload));
+
+    if (!summary) {
+      const payload = generateSummaryHelper(dat);
+      dispatch(generateSummary(payload));
+    }
     navigate("/generator");
   };
 

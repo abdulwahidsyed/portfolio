@@ -1,25 +1,27 @@
 import styled from "styled-components";
 import {
+  StyledBox,
   StyledHeading,
   StyledParagraph,
   StyledParagraphBold,
 } from "../../components/UI/Styled";
 
-export const EducationGenerator = ({ data }) => {
+export const EducationGenerator = ({ data = [] }) => {
+  if (!data.length) return;
   return (
     <StyledCtn>
       <StyledHeading>Education</StyledHeading>
-      {data.map((el) => (
-        <StyledBox>
-          <StyledFlex>
+      <StyledFlex>
+        {data.map((el) => (
+          <StyledBox>
             <StyledParagraphBold>{el.education}</StyledParagraphBold>
             <StyledParagraph>{el.duration}</StyledParagraph>
-          </StyledFlex>
-
-          <StyledParagraph>{el.collegeName}</StyledParagraph>
-          <StyledParagraph>{el.collegeAddress}</StyledParagraph>
-        </StyledBox>
-      ))}
+            <StyledParagraph>{el.collegeName}</StyledParagraph>
+            <StyledParagraph>{el.collegeAddress}</StyledParagraph>
+            <StyledParagraph>{el.percentage}</StyledParagraph>
+          </StyledBox>
+        ))}
+      </StyledFlex>
     </StyledCtn>
   );
 };
@@ -27,14 +29,18 @@ export const EducationGenerator = ({ data }) => {
 const StyledCtn = styled.div`
   padding: 30px;
 `;
-const StyledBox = styled.div`
-  margin-bottom: 40px;
-`;
+
 const StyledFlex = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
+  gap: 20px;
+  flex-wrap: wrap;
 
   & p {
     margin-bottom: 2px;
+  }
+
+  & p:nth-child(1) {
+    margin-top: 0px;
   }
 `;

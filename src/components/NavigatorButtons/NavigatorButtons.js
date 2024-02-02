@@ -8,31 +8,15 @@ export const NavigatorButtons = ({
   isInitialPage,
   isLastPage,
 }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  // const navigateHandler = (type) => {
-  //   const routes = ["/", "/generator"];
-
-  //   const currentPathIndex = routes.findIndex((el) => el === location.pathname);
-
-  //   let url =
-  //     type === "next"
-  //       ? routes[currentPathIndex + 1]
-  //       : routes[currentPathIndex - 1];
-  //   if (url) {
-  //     navigate(url);
-  //   }
-  // };
-
+  console.log("my isInitialPage", isInitialPage);
   return (
     <StyledCtn>
-      {isInitialPage ? null : (
+      {!isInitialPage ? (
         <Button onClick={() => navigateHandler("back")}>Back</Button>
-      )}
-      {isLastPage ? null : (
+      ) : null}
+      {!isLastPage ? (
         <Button onClick={() => navigateHandler("next")}>Next</Button>
-      )}
+      ) : null}
     </StyledCtn>
   );
 };

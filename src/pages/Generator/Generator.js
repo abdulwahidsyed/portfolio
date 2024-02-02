@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { NavigatorButtons } from "../../components/NavigatorButtons/NavigatorButtons";
 import { SkillsGenerator } from "./SkillsGenerator";
 import { EducationGenerator } from "./EducationGenerator";
+import { ProjectGenerator } from "./ProjectGenerator";
 
 const Generator = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Generator = () => {
   const { summary } = useSelector((st) => st.home);
 
   useEffect(() => {
-    debugger;
+    console.log("my summary", summary);
     if (!summary) navigate("/");
   }, []);
 
@@ -30,6 +31,7 @@ const Generator = () => {
       <PrintCtn ref={printRef}>
         <HeaderResume data={summary?.basicDetails} />
         <SkillsGenerator data={summary?.commonSkills} />
+        <ProjectGenerator data={summary?.projects} />
         <EducationGenerator data={summary?.education} />
       </PrintCtn>
       <NavigatorButtons navigateHandler={navigateHandler} isLastPage />
@@ -46,6 +48,9 @@ const StyledCtn = styled.div`
 
 const PrintCtn = styled.div`
   padding-bottom: 60px;
+
+  background-color: #ffffff;
+  background-image: linear-gradient(0deg, #ffffff 0%, #b5fffc 100%);
   & * {
     text-align: left;
   }

@@ -5,6 +5,7 @@ export const inputs_basic_mock = [
     placeholder: "Name",
     type: "text",
     value: "",
+    isRequired: true,
   },
   {
     name: "designation",
@@ -12,6 +13,7 @@ export const inputs_basic_mock = [
     placeholder: "Designation",
     type: "text",
     value: "",
+    isRequired: true,
   },
 
   {
@@ -20,6 +22,7 @@ export const inputs_basic_mock = [
     placeholder: "Mail",
     type: "text",
     value: "",
+    isRequired: true,
   },
   {
     name: "phone",
@@ -27,6 +30,7 @@ export const inputs_basic_mock = [
     placeholder: "Phone",
     type: "text",
     value: "",
+    isRequired: true,
   },
   {
     name: "linkedinProfile",
@@ -133,6 +137,13 @@ export const inputs_education_mock = [
     name: "collegeAddress",
     label: "College Address",
     placeholder: "College Address",
+    type: "text",
+    value: "",
+  },
+  {
+    name: "percentage",
+    label: "Percentage",
+    placeholder: "Address",
     type: "text",
     value: "",
   },
@@ -246,15 +257,17 @@ export const populateData = () => {
     education: [
       {
         education: "Diploma",
-        collegeName: "AL-Huda Polytechnic college",
+        collegeName: "AL-Huda Polytechnic college ",
         duration: "2012-2015",
         collegeAddress: "Nellore, Andhra Pradesh, India",
+        percentage: "82%",
       },
       {
-        education: "2Diploma2",
-        collegeName: "2AL-Huda Polytechnic college",
-        duration: "2 2012-2015",
-        collegeAddress: "2 Nellore, Andhra Pradesh, India",
+        education: "Secondary (X)",
+        collegeName: "Sri Vani English Medium",
+        duration: "2012",
+        collegeAddress: "Nellore, Andhra Pradesh, India",
+        percentage: "87%",
       },
     ],
     projects: [
@@ -300,7 +313,7 @@ export const populateData = () => {
         projectName: "Warehouse Network App",
         role: "Frontend Engineer",
         companyName: "Keystack Technologies PVT LTD",
-        projectDuration: "5-02-2021 to 18-09-2022",
+        projectDuration: "05-02-2021 to 18-09-2022",
         skillsUsed: [
           "React, RTK(Redux Toolkit), MUI(material UI), jest, RTL(testing), html, css, javascript",
         ],

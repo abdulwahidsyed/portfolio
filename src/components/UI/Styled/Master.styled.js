@@ -14,6 +14,7 @@ export const StyledApp = styled.div`
 `;
 
 export const StyledHeader = styled.div`
+  padding: 0 10px;
   width: 100%;
   height: 60px;
   position: fixed;
@@ -100,8 +101,8 @@ export const StyledLayout = styled.div`
 export const StyledSection = styled.div`
   border: 1px solid #00000029;
   backdrop-filter: blur(10px);
-  padding: 20px 30px;
   box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.44);
+  padding: 20px 30px;
 
   ${mobile`
     padding: 20px 8px 8px 8px;
@@ -118,4 +119,15 @@ export const StyledSection = styled.div`
   ${desktop`
     padding: 30px 30px 20px 30px;
   `}
+`;
+
+export const StyledBox = styled.div`
+  border: 1px solid #00000029;
+  backdrop-filter: blur(10px);
+  box-shadow: 8px 8px 4px 1px rgba(0, 0, 0, 0.44);
+  padding: 20px 20px;
+  margin-bottom: 40px;
+  // background: linear-gradient(45deg, #656464, transparent);
+
+  background: linear-gradient(45deg, #6564645e, transparent);
 `;

@@ -33,6 +33,10 @@ export const StyledInput = styled.input`
     border: 1px solid #00a7ff;
   }
 
+  &::placeholder {
+    color: ${({ $isError }) => ($isError ? "#a30000" : "unset")};
+  }
+
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     -webkit-backdrop-filter: blur(5px) !important;
     backdrop-filter: blur(5px) !important;

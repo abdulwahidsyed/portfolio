@@ -5,18 +5,19 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store, persistor } from "./redux/store";
-import { PersistGate } from "redux-persist/integration/react";
+import { store } from "./redux/store";
+import ErrorBoundary from "./pages/Errors/ErrorBoundary";
+import { ErrorPageMain } from "./pages/Errors/ErrorPageMain";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
+      <BrowserRouter>
+        <ErrorBoundary fallback={<ErrorPageMain />}>
           <App />
-        </BrowserRouter>
-      </PersistGate>
+        </ErrorBoundary>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );

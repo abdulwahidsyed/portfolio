@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
 export const Backdrop = ({ show, onClick }) => {
-  return <StyledBackdrop show={show} onClick={onClick} />;
+  return <StyledBackdrop $show={show} onClick={onClick} />;
 };
 
 const fadeIn = keyframes`
@@ -14,7 +14,7 @@ const fadeIn = keyframes`
 `;
 
 const StyledBackdrop = styled.div`
-  display: ${(props) => (props.show ? "block" : "none")};
+  display: ${(props) => (props.$show ? "block" : "none")};
 
   position: fixed;
   top: 0;
@@ -22,8 +22,12 @@ const StyledBackdrop = styled.div`
   bottom: 0;
   left: 0;
   z-index: 999;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(6px);
+    // background-color: rgba(255, 255, 255, 0);
+  }
 
   animation: ${fadeIn} 0.3s ease-in-out;
 `;

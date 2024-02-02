@@ -5,6 +5,7 @@ import {
 } from "../Styled/Button.styled";
 
 export const Button = ({ variant = "basic", children, ...props }) => {
+  console.log("my props", props);
   const generateButton = () => {
     switch (variant) {
       case "basic":

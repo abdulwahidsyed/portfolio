@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeSideDrawer } from "../../redux/masterSlice/master.slice";
 import { Backdrop } from "./Backdrop";
 import {
+  generateSummaryHelper,
   inputs_basic_mock,
   inputs_common_skills_mock,
   inputs_education_mock,
@@ -11,7 +12,10 @@ import {
   inputs_work_experience_mock,
   populateData,
 } from "../../pages/Home/home.helper";
-import { updateAllInputs } from "../../redux/homeSlice/home.slice";
+import {
+  generateSummary,
+  updateAllInputs,
+} from "../../redux/homeSlice/home.slice";
 
 export const SideDrawer = () => {
   const dispatch = useDispatch();
@@ -25,6 +29,9 @@ export const SideDrawer = () => {
   const onClickAutofill = () => {
     const newInputs = populateData();
     dispatch(updateAllInputs(newInputs));
+
+    // const payload = generateSummaryHelper(newInputs);
+    // dispatch(generateSummary(payload));
     onClose();
   };
 
