@@ -5,7 +5,6 @@ import {
   StyledHeadingSmall,
   StyledParagraph,
   StyledParagraphBold,
-  StyledParagraphGray,
   StyledSection,
 } from "../../components/UI/Styled";
 
@@ -14,7 +13,7 @@ export const ProjectGenerator = ({ data = [] }) => {
 
   return (
     <StyledCtn>
-      <StyledHeading>Projects</StyledHeading>
+      <StyledHeadingMedium>Projects</StyledHeadingMedium>
       {data.map((el) => (
         <StyledSectionLoc>
           <StyledFlex>
@@ -25,7 +24,21 @@ export const ProjectGenerator = ({ data = [] }) => {
             <StyledParagraphBold>{el.companyName}</StyledParagraphBold>
             <StyledParagraphBold>{el.projectDuration}</StyledParagraphBold>
           </StyledFlex>
-          <StyledParagraph>{el.projectDescription}</StyledParagraph>
+          <StyledPDBox>
+            {el.projectDescription.map((desc) => (
+              <StyledParagraph>{desc}</StyledParagraph>
+            ))}
+          </StyledPDBox>
+          <StyledParagraphBold style={{ marginTop: "26px" }}>
+            Roles & Responsibilities
+          </StyledParagraphBold>
+          <StyledUL>
+            {el.rolesAndResponsibilities.map((r) => (
+              <StyledLI>
+                <StyledParagraph>{r}</StyledParagraph>
+              </StyledLI>
+            ))}
+          </StyledUL>
         </StyledSectionLoc>
       ))}
     </StyledCtn>
@@ -34,11 +47,14 @@ export const ProjectGenerator = ({ data = [] }) => {
 
 const StyledCtn = styled.div`
   padding: 30px 30px 0 30px;
+  * {
+    color: black;
+  }
 `;
 
 const StyledSectionLoc = styled(StyledSection)`
-  margin-bottom: 20px;
-  box-shadow: none;
+  margin-bottom: 40px;
+  border: none;
 `;
 
 const StyledFlex = styled.div`
@@ -48,4 +64,16 @@ const StyledFlex = styled.div`
   & h2 {
     margin: 0 0 0px 0;
   }
+`;
+
+const StyledUL = styled.ul`
+  padding-left: 16px;
+  margin-top: 10px;
+`;
+const StyledLI = styled.li`
+  margin: 4px 0;
+`;
+
+const StyledPDBox = styled.div`
+  margin-top: 10px;
 `;

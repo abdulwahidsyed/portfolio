@@ -6,11 +6,12 @@ export const StyledApp = styled.div`
   padding-top: 61px;
   text-align: center;
   min-height: 100vh;
-  background: url(${whitePage});
+  background: ${({ theme }) => theme.appBackground};
+  // background: url(${whitePage});
   /* background: url("./assets/white1.jpg"); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-attachment: fixed;
 `;
 
 export const StyledHeader = styled.div`
@@ -21,13 +22,12 @@ export const StyledHeader = styled.div`
   overflow: hidden;
   display: flex;
   align-items: center;
-  z-index: 2;
+  z-index: 100;
   background: linear-gradient(
     to right bottom,
     rgba(225, 225, 225, 0.4),
     rgba(225, 225, 225, 0)
   );
-  color: #333;
   font-family: sans-serif;
   line-height: 1.5;
   position: fixed;
@@ -42,7 +42,6 @@ export const StyledHeader = styled.div`
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
-    // background-color: rgba(112, 112, 112, 0.11);
   }
 `;
 
@@ -53,13 +52,12 @@ export const StyledFooter = styled.div`
   overflow: hidden;
   display: flex;
   align-items: center;
-  z-index: 2;
+  z-index: 100;
   background: linear-gradient(
     to right bottom,
     rgb(21 21 21),
     rgb(134 134 134 / 73%)
   );
-  color: #333;
   font-family: sans-serif;
   line-height: 1.5;
   position: fixed;
@@ -98,36 +96,23 @@ export const StyledLayout = styled.div`
   `}
 `;
 
-export const StyledSection = styled.div`
-  border: 1px solid #00000029;
-  backdrop-filter: blur(10px);
-  box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.44);
-  padding: 20px 30px;
+export const StyledSideDrawer = styled.div`
+  width: 320px;
+  max-width: 100vh;
+  background: ${({ theme }) => theme.sideDrawerBgColor};
+  padding: 60px 20px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  text-align: left;
 
-  ${mobile`
-    padding: 20px 8px 8px 8px;
-  `}
+  position: fixed;
+  top: 0;
+  right: ${(props) => (props.open ? "0" : "-320px")};
+  bottom: 0;
 
-  ${tablet`
-    padding: 20px 10px 4px 10px;
-  `}
+  z-index: 1000;
+  transition: right 0.4s ease;
 
-  ${laptop`
-    padding: 30px 30px 20px 30px;
-  `}
-
-  ${desktop`
-    padding: 30px 30px 20px 30px;
-  `}
-`;
-
-export const StyledBox = styled.div`
-  border: 1px solid #00000029;
-  backdrop-filter: blur(10px);
-  box-shadow: 8px 8px 4px 1px rgba(0, 0, 0, 0.44);
-  padding: 20px 20px;
-  margin-bottom: 40px;
-  // background: linear-gradient(45deg, #656464, transparent);
-
-  background: linear-gradient(45deg, #6564645e, transparent);
+  display: flex;
+  flex-direction: column;
 `;

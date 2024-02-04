@@ -151,15 +151,22 @@ export const inputs_education_mock = [
 
 export const inputs_work_experience_mock = [
   {
-    name: "role",
-    label: "Role",
-    placeholder: "Role",
+    name: "project",
+    label: "Project",
+    placeholder: "Project",
+    type: "text",
+    value: "",
+  },
+  {
+    name: "projectType",
+    label: "Project Type",
+    placeholder: "If contribution or own application...",
     type: "text",
     value: "",
   },
   {
     name: "duration",
-    label: "Duration",
+    label: "Duration / Date of project",
     placeholder: "Duration",
     type: "text",
     value: "",
@@ -221,8 +228,8 @@ export const inputs_projects_mock = [
     name: "projectDescription",
     label: "Project Description",
     placeholder: "Description",
-    type: "textarea",
-    value: "",
+    type: "bulletPoints",
+    value: [],
   },
   {
     name: "rolesAndResponsibilities",
@@ -233,7 +240,7 @@ export const inputs_projects_mock = [
   },
 ];
 
-export const populateData = () => {
+export const autoPopulateInputs = () => {
   const res = {
     basicDetails: {
       name: "Syed Abdul Wahid",
@@ -248,10 +255,10 @@ export const populateData = () => {
     commonSkills: [
       {
         frontend:
-          "React, Redux, RTK, javascript, html, css, Angular, jest, RTL",
+          "React, Redux, RTK, Router, javascript, html, css, Angular, jest, RTL",
         backend: "Node.js, Express.js, graphQL",
         databases: "MongoDB, SQL",
-        developmentTools: "Jira, github, gitlab, figma",
+        developmentTools: "Docker, Jira, github, gitlab, figma, ",
       },
     ],
     education: [
@@ -277,15 +284,19 @@ export const populateData = () => {
         companyName: "Criska Business Consulting PVT LTD",
         projectDuration: "01-09-2023 to Present",
         skillsUsed: [
-          "Frontend: React, Redux Tool kit, MUX-component library, jest, RTL(testing)",
+          "Frontend: React, RTK(Redux Tool kit), MUX Component library(Storybook), jest, RTL(testing)",
           "Backend: Node.js, Express.js",
           "Databases: SQL",
         ],
-        projectDescription:
-          "Created a React & node.js application from scratch for Manulife's Insurance application for the client johnhancock. Integrated eslint, husky, lint-staged, prettier, adobe datalayer etc and combined of these tools, a maintainable, scallable, high quality frontend application got created",
+        projectDescription: [
+          "Created a Monorepo with React & node.js , application from scratch for Manulife's Insurance application for the client johnhancock. Integrated eslint, husky, lint-staged, prettier, adobe datalayer etc and combined of these tools, a maintainable, scallable, high quality frontend application got created.",
+          "Contributed to add tools like eslint, husky, likt-staged prettier and added a layer of security to the code that is going to be committed.",
+          "Built a robust architectural setup which saved a lot of code-review time.",
+        ],
         rolesAndResponsibilities: [
-          "Code reviews, Application flow and integrated technology's demos were getting performed through out the whole crew members",
-          "Collaborating with team members to understand project requirements and designing software solutions that meet those requirements.",
+          "Worked for Code Quality and Technical Excellence to achieve and maintain high code quality and overall technical abilities to perform code reviews and help catch architectural and technical issues early in the process.",
+          "Application flows, documentations and integrated technology's demos were getting performed through out the whole crew members",
+          "Collaborating with the team to understand project requirements and designing software solutions that meet those requirements.",
           "Writing clean, well-documented and maintainable code that follows industry best practices and standards.",
           "Testing and validating software solutions to ensure that they meet quality standards and functional requirements.",
           "Developing code structures that are agile and easy to read and understand.",
@@ -298,12 +309,13 @@ export const populateData = () => {
           "CGI Information Systems and Management Consultants Pvt. Ltd.",
         projectDuration: "19-09-2022 to 25-08-2023",
         skillsUsed: [
-          "React, Superset's opensource Micro Frontend, jest, RTL(testing), html, css, javascript",
+          "Frontend: React, Superset's opensource Micro Frontend, jest, RTL(testing), html, css, javascript",
         ],
-        projectDescription:
-          "Worked on a new product which is based on superset, an opensource micro-frontend application. This application is all about creating charts and maps based on existing superset's elements and components with the theming of CGI",
+        projectDescription: [
+          "Worked on a new product which is based on superset, an opensource micro-frontend application. This application is all about creating charts and maps based on existing superset's elements and components with the theming of CGI.",
+        ],
         rolesAndResponsibilities: [
-          "Collaborating with team members to understand project requirements and designing software solutions that meet those requirements.",
+          "Collaborating with the team to understand project requirements and designing software solutions that meet those requirements.",
           "Writing clean, well-documented and maintainable code that follows industry best practices and standards.",
           "Testing and validating software solutions to ensure that they meet quality standards and functional requirements.",
           "Developing code structures that are agile and easy to read and understand.",
@@ -315,16 +327,18 @@ export const populateData = () => {
         companyName: "Keystack Technologies PVT LTD",
         projectDuration: "05-02-2021 to 18-09-2022",
         skillsUsed: [
-          "React, RTK(Redux Toolkit), MUI(material UI), jest, RTL(testing), html, css, javascript",
+          "Frontend: React, Redux, Router,  MUI(material UI), jest, RTL(testing), html, css, javascript",
+          "Backend: Node.js, express.js, no-sql",
+          "Development Tools: Docker, github, git, vs-code",
         ],
-        projectDescription:
-          "A Warehouse application that shows..., Need to update",
+        projectDescription: [
+          "A Network visual application built with Dashboards, Realtime Voice Call Quality Analysis, Admin Panels adding visual understanding tools like charts, maps and graphs. Combined with these tools we created an excellent application which showcases the usage of the network by all over the country.",
+          "Contributed to modify the current components to be as re-usable and generated a much easy to use components overall the application.",
+        ],
         rolesAndResponsibilities: [
-          "Code reviews, Application flow and integrated technology's demos were getting performed through out the whole crew members",
-          "Collaborating with team members to understand project requirements and designing software solutions that meet those requirements.",
+          "Collaborating with the team to understand project requirements and designing software solutions that meet those requirements.",
           "Writing clean, well-documented and maintainable code that follows industry best practices and standards.",
           "Testing and validating software solutions to ensure that they meet quality standards and functional requirements.",
-          "Developing code structures that are agile and easy to read and understand.",
         ],
       },
       {
@@ -332,22 +346,45 @@ export const populateData = () => {
         role: "Frontend Engineer",
         companyName: "Keystack Technologies PVT LTD",
         projectDuration: "10-01-2019 to 4-02-2021",
-        skillsUsed: ["React, Bootstrap, jest, Enzyme, html, css, javascript"],
-        projectDescription:
-          "A Warehouse application that shows..., Need to update",
-        rolesAndResponsibilities: [],
+        skillsUsed: [
+          "Frontend: React, Bootstrap, jest, Enzyme, html, css, javascript",
+        ],
+        projectDescription: [
+          "A Warehouse application that represents all the details about the working staff of the company. The modules built were Login page, User's list, User's authorization's page, Physical and Cycle count pages, User's management, etc.",
+        ],
+        rolesAndResponsibilities: [
+          "Collaborating with the team and the following the lead on accomplis the requirements on time.",
+          "Demonstrating the completed tasks with the whole crew.",
+          "Following the sprint timelines to be transparent about the tasks we were working on.",
+        ],
       },
       {
-        projectName: "",
+        projectName: "Client HP Services",
         role: "Frontend Engineer",
         companyName: "Keystack Technologies PVT LTD",
         projectDuration: "10-03-2018 to 9-01-2019",
-        skillsUsed: ["React, Bootstrap,  jest, Enzyme, html, css, javascript"],
-        projectDescription: "",
-        rolesAndResponsibilities: [],
+        skillsUsed: [
+          "Frontend: React, Bootstrap, jest, Enzyme, html, css, javascript",
+        ],
+        projectDescription: [
+          "Built a Frontend react application to serve the client requirements for the Printer pages. Built a number of multiple React pages in one single application and renders dynamically. These are for usage in HP printer web applications.",
+        ],
+        rolesAndResponsibilities: [
+          "Collaborating with the team and the following the lead on accomplis the requirements on time.",
+          "Demonstrating the completed tasks with the whole crew.",
+          "Following the sprint timelines to be transparent about the tasks we were working on.",
+        ],
       },
     ],
-    workExperience: [],
+    workExperience: [
+      {
+        project: "",
+        projectType: "Own Application",
+        duration: "",
+        description: "",
+        bulletPointsWorkExp: [],
+      },
+    ],
   };
 
   const dat = {
@@ -357,6 +394,9 @@ export const populateData = () => {
     ]),
     inputsEducation: generateMatrix(res.education, [...inputs_education_mock]),
     inputsProjects: generateMatrix(res.projects, [...inputs_projects_mock]),
+    inputsWorkExperience: generateMatrix(res.workExperience, [
+      ...inputs_work_experience_mock,
+    ]),
   };
   return dat;
 };

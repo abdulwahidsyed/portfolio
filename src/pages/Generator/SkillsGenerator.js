@@ -23,7 +23,7 @@ export const SkillsGenerator = ({ data = [] }) => {
   if (!data.length) return;
   return (
     <StyledCtn>
-      <StyledHeading>Skills</StyledHeading>
+      <StyledHeadingMedium>Skills</StyledHeadingMedium>
       <StyledBox>
         <StyledParagraphBold>Frontend-End: </StyledParagraphBold>
         <StyledParagraph> {basicData.frontend}</StyledParagraph>
@@ -48,13 +48,16 @@ export const SkillsGenerator = ({ data = [] }) => {
             <StyledParagraph>{el.skillDetails}</StyledParagraph>
           </StyledBox>
         ))}
-      <StyledHeadingMedium></StyledHeadingMedium>
+      {/* <StyledHeadingMedium></StyledHeadingMedium> */}
     </StyledCtn>
   );
 };
 
 const StyledCtn = styled.div`
   padding: 30px 30px 0 30px;
+  * {
+    color: black;
+  }
 `;
 
 const StyledBox = styled.div`

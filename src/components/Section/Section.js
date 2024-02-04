@@ -20,8 +20,6 @@ const Section = () => {
     };
   }, []);
 
-  console.log("my isSticky", isSticky);
-
   return (
     <StyledCtn ref={ref}>
       {/* <h1 className={`heading ${isSticky ? "sticky" : ""}`}>My Heading</h1> */}

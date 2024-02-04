@@ -4,7 +4,7 @@ import styled from "styled-components";
 // Headings
 
 export const StyledHeadingBig = styled.h1`
-  color: rgb(29, 29, 31);
+  color: ${({ theme }) => theme.color};
   font-size: 44px;
   font-weight: 600;
   line-height: 52px;
@@ -13,7 +13,7 @@ export const StyledHeadingBig = styled.h1`
 `;
 
 export const StyledHeadingMedium = styled.h2`
-  color: rgb(29, 29, 31);
+  color: ${({ theme }) => theme.color};
   font-size: 28px;
   font-weight: 600;
   line-height: 35.2px;
@@ -22,7 +22,7 @@ export const StyledHeadingMedium = styled.h2`
 `;
 
 export const StyledHeading = styled.h3`
-  color: rgb(29, 29, 31);
+  color: ${({ theme }) => theme.color};
   font-size: 21px;
   font-weight: 600;
   line-height: 28px;
@@ -31,7 +31,7 @@ export const StyledHeading = styled.h3`
 `;
 
 export const StyledHeadingSmall = styled.h2`
-  color: rgb(29, 29, 31);
+  color: ${({ theme }) => theme.color};
   font-size: 18px;
   font-weight: 600;
   line-height: 23.4px;
@@ -41,15 +41,16 @@ export const StyledHeadingSmall = styled.h2`
 // Paragraphs
 
 export const StyledParagraph = styled.p`
-  color: rgb(22, 22, 22);
+  color: ${({ theme }) => theme.color};
   font-size: 14px;
   font-weight: 400;
   line-height: 22.4px;
   letter-spacing: 0px;
+  margin-top: 0;
 `;
 
 export const StyledParagraphBold = styled.p`
-  color: rgb(22, 22, 22);
+  color: ${({ theme }) => theme.color};
   font-size: 14px;
   font-weight: 600;
   line-height: 22.4px;
@@ -57,7 +58,7 @@ export const StyledParagraphBold = styled.p`
 `;
 
 export const StyledParagraphGray = styled.p`
-  color: rgb(80, 80, 80);
+  color: ${({ theme }) => theme.commonGrayColor};
   font-size: 14px;
   font-weight: 400;
   line-height: 22.4px;
@@ -65,7 +66,7 @@ export const StyledParagraphGray = styled.p`
 `;
 
 export const StyledParagraphSmall = styled.p`
-  color: rgb(80, 80, 80);
+  color: ${({ theme }) => theme.commonGrayColor};
   font-size: 12px;
   font-weight: 400;
   line-height: 18.2px;
@@ -75,7 +76,7 @@ export const StyledParagraphSmall = styled.p`
 // Anchor tags (links)
 
 export const StyledAnchor = styled.p`
-  color: rgb(0, 101, 179);
+  color: color: ${({ theme }) => theme.commonAnchorColor};
   font-size: 12px;
   font-weight: 600;
   line-height: 18.2px;
@@ -84,14 +85,14 @@ export const StyledAnchor = styled.p`
   cursor: pointer;
 
   &:hover {
-    text-decoration-color: rgb(0, 101, 179);
+    text-decoration-color: color: ${({ theme }) => theme.commonAnchorColor};
     text-decoration: underline;
     text-decoration-style: solid;
   }
 `;
 
 export const StyledAnchorSmall = styled.p`
-  color: rgb(0, 101, 179);
+  color: color: ${({ theme }) => theme.commonAnchorColor};
   font-size: 14px;
   font-weight: 400;
   line-height: 18.2px;
@@ -100,19 +101,8 @@ export const StyledAnchorSmall = styled.p`
   cursor: pointer;
 
   &:hover {
-    text-decoration-color: rgb(0, 101, 179);
+    text-decoration-color: color: ${({ theme }) => theme.commonAnchorColor};
     text-decoration: underline;
     text-decoration-style: solid;
   }
-`;
-
-// others
-
-export const StyledInputLabel = styled.p`
-  color: rgb(22, 22, 22);
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 22.4px;
-  letter-spacing: 0px;
-  margin: 0;
 `;

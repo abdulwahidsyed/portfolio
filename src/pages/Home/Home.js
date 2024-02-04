@@ -179,7 +179,13 @@ const Home = () => {
 
   const navigateHandler = (type) => {
     const isError = validateInputs();
-    if (isError) return;
+    if (isError) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      return;
+    }
 
     const dat = {
       inputsBasic,
@@ -189,10 +195,10 @@ const Home = () => {
       inputsProjects,
     };
 
-    if (!summary) {
-      const payload = generateSummaryHelper(dat);
-      dispatch(generateSummary(payload));
-    }
+    // if (!summary) {
+    //   const payload = generateSummaryHelper(dat);
+    //   dispatch(generateSummary(payload));
+    // }
     navigate("/generator");
   };
 

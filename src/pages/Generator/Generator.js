@@ -1,26 +1,44 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 import { FooterGenerator } from "./FooterGenerator";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { HeaderResume } from "./HeaderResume";
-import { useNavigate } from "react-router-dom";
 import { NavigatorButtons } from "../../components/NavigatorButtons/NavigatorButtons";
 import { SkillsGenerator } from "./SkillsGenerator";
 import { EducationGenerator } from "./EducationGenerator";
 import { ProjectGenerator } from "./ProjectGenerator";
+import { autoPopulateInputs, generateSummaryHelper } from "../Home/home.helper";
+import {
+  generateSummary,
+  updateAllInputs,
+} from "../../redux/homeSlice/home.slice";
 
 const Generator = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const printRef = useRef();
 
   const { summary } = useSelector((st) => st.home);
 
   useEffect(() => {
-    console.log("my summary", summary);
-    if (!summary) navigate("/");
+    // if (!summary) navigate("/");
+    initialCall();
   }, []);
+
+  useEffect(() => {
+    console.log("my summary", summary);
+  }, [summary]);
+
+  const initialCall = () => {
+    const newInputs = autoPopulateInputs();
+    dispatch(updateAllInputs(newInputs));
+
+    const payload = generateSummaryHelper(newInputs);
+    dispatch(generateSummary(payload));
+  };
 
   const navigateHandler = () => {
     navigate("/");
@@ -50,7 +68,6 @@ const PrintCtn = styled.div`
   padding-bottom: 60px;
 
   background-color: #ffffff;
-  background-image: linear-gradient(0deg, #ffffff 0%, #b5fffc 100%);
   & * {
     text-align: left;
   }

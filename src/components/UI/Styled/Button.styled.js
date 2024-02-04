@@ -8,7 +8,7 @@ export const StyledButton = styled.button`
   font-weight: 400;
   line-height: 1.5;
   height: 31px;
-  color: #212529;
+  color: ${({ theme }) => theme.buttonColor};
   padding: 4px 20px;
   min-width: 160px;
 
@@ -17,38 +17,36 @@ export const StyledButton = styled.button`
 
   background-clip: padding-box;
   border-radius: 0;
-  background: linear-gradient(
-    to right bottom,
-    rgba(225, 225, 225, 0.4),
-    rgba(225, 225, 225, 0)
-  );
-  border: ${({ $isError }) =>
-    $isError ? "1px solid #a30000" : "1px solid black"};
+  background: ${({ theme }) => theme.buttonBackground};
+  border: ${({ $isError, theme }) =>
+    $isError ? theme.commonDangerBtnBorder : theme.buttonBorder};
 
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
-    outline 0s ease-in-out;
+  transition: border-color 0.15s ease-in-out, outline 0s ease,
+    background 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
   ${ellipsisStyle}
 
   appearance: none;
   -webkit-appearance: none;
-  -webkit-box-shadow: 12px 10px 6px 1px rgba(0, 0, 0, 0.44);
-  -moz-box-shadow: 12px 10px 6px 1px rgba(0, 0, 0, 0.44);
-  box-shadow: 12px 10px 6px 1px rgba(0, 0, 0, 0.44);
+  -webkit-box-shadow: ${({ theme }) => theme.boxShadowButton};
+  -moz-box-shadow: ${({ theme }) => theme.boxShadowButton};
+  box-shadow: ${({ theme }) => theme.boxShadowButton};
 
   &:focus-visible {
     outline: none;
     border: 1px solid #00a7ff;
   }
   &:hover {
-    box-shadow: 6px 10px 6px 1px rgba(0, 0, 0, 0.44);
-    outline: 1px solid black;
+    box-shadow: ${({ theme }) => theme.boxShadowButtonHover};
+    outline: ${({ theme }) => theme.buttonHoverOutline};
+    background: ${({ theme }) => theme.buttonBackgroundHover};
   }
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    -webkit-backdrop-filter: blur(5px) !important;
-    backdrop-filter: blur(5px) !important;
-    background-color: rgba(255, 255, 255, 0) !important;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: ${({ theme }) => theme.buttonBackground};
+    background: ${({ theme }) => theme.buttonBackground};
   }
 `;
 
@@ -58,7 +56,12 @@ export const StyledRedButton = styled.button`
   font-weight: 400;
   line-height: 1.5;
   height: 31px;
-  color: #860202;
+  color: ${({ theme }) => theme.dangerBtnColor};
+
+  background: ${({ theme }) => theme.dangerButtonBackground};
+  backdrop-filter: none;
+  border: ${({ theme }) => theme.dangerBtnBorder};
+
   padding: 4px 20px;
   min-width: 160px;
 
@@ -68,9 +71,6 @@ export const StyledRedButton = styled.button`
   background-clip: padding-box;
   border-radius: 0;
 
-  background: #ffb1b1;
-  border: 1px solid #860202;
-
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
     outline 0s ease-in-out;
 
@@ -78,23 +78,19 @@ export const StyledRedButton = styled.button`
 
   appearance: none;
   -webkit-appearance: none;
-  -webkit-box-shadow: 12px 10px 6px 1px rgba(0, 0, 0, 0.44);
-  -moz-box-shadow: 12px 10px 6px 1px rgba(0, 0, 0, 0.44);
-  box-shadow: 12px 10px 6px 1px rgba(0, 0, 0, 0.44);
+  -webkit-box-shadow: ${({ theme }) => theme.dangerBtnShadow};
+  -moz-box-shadow: ${({ theme }) => theme.dangerBtnShadow};
+  box-shadow: ${({ theme }) => theme.dangerBtnShadow};
 
   &:focus-visible {
     outline: none;
     border: 1px solid #00a7ff;
   }
   &:hover {
-    box-shadow: 6px 10px 6px 1px rgb(157 0 0 / 38%);
-    outline: 1px solid rgb(157 0 0 / 38%);
-  }
-
-  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    -webkit-backdrop-filter: blur(5px) !important;
-    backdrop-filter: blur(5px) !important;
-    background: #ffb1b1 !important;
+    box-shadow: ${({ theme }) => theme.dangerBtnShadowHover};
+    border: none;
+    // background: #3a1d09;
+    outline: none;
   }
 `;
 
@@ -105,8 +101,11 @@ export const StyledCloseBtn = styled(StyledParagraphSmall)`
   margin: 0;
   cursor: pointer;
   padding: 4px 20px;
+  transition: box-shadow 0.2s ease;
+  background: ${({ theme }) => theme.smallCloseButtonBG};
+  color: ${({ theme }) => theme.smallCloseButtonColor};
 
   &:hover {
-    background: #1715150f;
+    box-shadow: ${({ theme }) => theme.smallCloseButtonShadow};
   }
 `;

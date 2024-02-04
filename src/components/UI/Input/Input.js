@@ -5,6 +5,7 @@ import {
   StyledTextarea,
 } from "../Styled/Input.styled";
 import { BulletPointInput } from "./BulletPointInput";
+import { Dropdown } from "./Dropdown";
 
 const Input = ({
   name,
@@ -13,6 +14,8 @@ const Input = ({
   value,
   placeholder,
   isError = false,
+  options = [],
+  isDisabled = false,
   ...props
 }) => {
   const generateInput = () => {
@@ -61,6 +64,18 @@ const Input = ({
             onChange={onChange}
             name={name}
             type={type}
+            {...props}
+          />
+        );
+
+      case "dropdown":
+        return (
+          <Dropdown
+            value={value}
+            onChange={onChange}
+            name={name}
+            options={options}
+            isDisabled={isDisabled}
             {...props}
           />
         );

@@ -1,12 +1,13 @@
 import ReactDatePicker from "react-datepicker";
 import styled from "styled-components";
+import Select from "react-select";
 import { desktop, laptop, mobile, tablet } from "./media-queries";
 
 export const StyledInput = styled.input`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: ${({ theme }) => theme.inputColor};
 
   padding: 4px 0.75rem;
   margin: 0 0px 20px 0px;
@@ -15,10 +16,10 @@ export const StyledInput = styled.input`
   width: 100%;
   background-clip: padding-box;
   border-radius: 0;
-  background: ${({ $isError }) =>
-    $isError ? "rgba(255, 203, 203, 0.17)" : "transparent"};
-  border: ${({ $isError }) =>
-    $isError ? "1px solid #a30000" : "1px solid black"};
+  background: ${({ $isError, theme }) =>
+    $isError ? "rgba(255, 203, 203, 0.17)" : theme.inputBackground};
+  border: ${({ $isError, theme }) =>
+    $isError ? "1px solid #a30000" : theme.inputBorder};
 
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
@@ -34,13 +35,16 @@ export const StyledInput = styled.input`
   }
 
   &::placeholder {
-    color: ${({ $isError }) => ($isError ? "#a30000" : "unset")};
+    color: ${({ $isError, theme }) =>
+      $isError
+        ? theme.commonDangerInputPlaceholderColor
+        : theme.inputPlaceholderColor};
   }
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    -webkit-backdrop-filter: blur(5px) !important;
-    backdrop-filter: blur(5px) !important;
-    background-color: rgba(255, 255, 255, 0) !important;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background: ${({ theme }) => theme.inputBackground};
   }
 `;
 
@@ -48,7 +52,7 @@ export const StyledTextarea = styled.textarea`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: ${({ theme }) => theme.inputColor};
 
   padding: 4px 0.75rem;
   margin: 0 0px 20px 0px;
@@ -57,16 +61,9 @@ export const StyledTextarea = styled.textarea`
   width: 100%;
   background-clip: padding-box;
   border-radius: 0;
-  /* background: ${({ $isError }) =>
-    $isError ? "rgba(255, 203, 203, 0.17)" : "transparent"};
-    */
-  background: linear-gradient(
-    to right bottom,
-    rgba(225, 225, 225, 0.4),
-    rgba(225, 225, 225, 0)
-  );
-  border: ${({ $isError }) =>
-    $isError ? "1px solid #a30000" : "1px solid black"};
+  background: ${({ theme }) => theme.inputBackground};
+  border: ${({ $isError, theme }) =>
+    $isError ? theme.commonDangerInputBorder : theme.inputBorder};
 
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
@@ -82,9 +79,9 @@ export const StyledTextarea = styled.textarea`
   }
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    -webkit-backdrop-filter: blur(5px) !important;
-    backdrop-filter: blur(5px) !important;
-    background-color: rgba(255, 255, 255, 0) !important;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background: ${({ theme }) => theme.inputBackground};
   }
 `;
 
@@ -92,7 +89,7 @@ export const StyledDatePicker = styled(ReactDatePicker)`
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: ${({ theme }) => theme.inputColor};
 
   padding: 4px 0.75rem;
   margin: 0 0px 20px 0px;
@@ -103,8 +100,8 @@ export const StyledDatePicker = styled(ReactDatePicker)`
   border-radius: 0;
   background: ${({ $isError }) =>
     $isError ? "rgba(255, 203, 203, 0.17)" : "transparent"};
-  border: ${({ $isError }) =>
-    $isError ? "1px solid #a30000" : "1px solid black"};
+  border: ${({ $isError, theme }) =>
+    $isError ? "1px solid #a30000" : theme.inputBorder};
 
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
@@ -120,9 +117,18 @@ export const StyledDatePicker = styled(ReactDatePicker)`
   }
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    -webkit-backdrop-filter: blur(5px) !important;
-    backdrop-filter: blur(5px) !important;
-    background-color: rgba(255, 255, 255, 0) !important;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0);
+  }
+`;
+
+export const StyledDropdown = styled(Select)`
+  margin: 0 0px 20px 0px;
+  width: 100%;
+
+  & .select__control {
+    min-height: 31px;
   }
 `;
 
@@ -173,4 +179,13 @@ export const StyledMatrixChild = styled.div`
   background: ${(props) => (props.newlyAdded ? "#ffffff4d" : "unset")};
   border: ${(props) => (props.newlyAdded ? "1px solid #ffffff63" : "unset")};
   padding: ${(props) => (props.newlyAdded ? "0 4px" : "0")};
+`;
+
+export const StyledInputLabel = styled.p`
+  color: ${({ theme }) => theme.inputLabelColor};
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 22.4px;
+  letter-spacing: 0px;
+  margin: 0;
 `;
