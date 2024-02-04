@@ -2,11 +2,14 @@ import { buttonTheme } from "./button.theme";
 import { textColorTheme } from "./textColor.theme";
 import { inputTheme } from "./input.theme";
 import { section } from "./section.theme";
+import black_bg from "../assets/black_bg.png";
+import white_ice_bg from "../assets/white_ice_bg.jpg";
 
 export const colorTheme = {
   dark: {
     sideDrawerBgColor: "black",
     appBackground: "black",
+    backgroundImage: black_bg,
 
     ...textColorTheme.dark,
     ...buttonTheme.dark,
@@ -16,6 +19,7 @@ export const colorTheme = {
   light: {
     sideDrawerBgColor: "white",
     appBackground: "white",
+    backgroundImage: white_ice_bg,
 
     ...textColorTheme.light,
     ...buttonTheme.light,
@@ -25,6 +29,7 @@ export const colorTheme = {
   silver: {
     sideDrawerBgColor: "white",
     appBackground: "#c0c0c0",
+    backgroundImage: white_ice_bg,
 
     ...textColorTheme.silver,
     ...buttonTheme.silver,

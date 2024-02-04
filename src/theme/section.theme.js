@@ -1,7 +1,7 @@
 export const section = {
   dark: {
     sectionBackground:
-      "linear-gradient(to right bottom, rgb(225 225 225 / 74%), rgb(225 225 225 / 0%) )",
+      "linear-gradient(to right bottom, rgb(255 255 255 / 11%), rgb(0 0 0) )",
   },
   light: {
     sectionBackground:

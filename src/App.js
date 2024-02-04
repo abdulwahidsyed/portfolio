@@ -6,7 +6,7 @@ import { StyledApp } from "./components/UI/Styled/Master.styled";
 import Router from "./Router";
 import { Backdrop } from "./components/UI/Backdrop";
 import { useThemes } from "./theme/useThemes";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
 function App() {
   const { showBackdrop } = useSelector((st) => st.master);
@@ -16,12 +16,18 @@ function App() {
     <ThemeProvider theme={theme}>
       <StyledApp className="App">
         <Header />
+        {/* <StyledCtn> */}
         <Router />
+        {/* </StyledCtn> */}
         <SideDrawer />
         <Backdrop show={showBackdrop} />
       </StyledApp>
     </ThemeProvider>
   );
 }
+
+const StyledCtn = styled.div`
+  backdrop-filter: blur(4px);
+`;
 
 export default App;

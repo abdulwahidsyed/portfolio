@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import whitePage from "../../../assets/white1.jpg";
+// import whitePage from "../../../assets/white1.jpg";
+// import black_bg from "../../../assets/black_bg.png";
 import { desktop, laptop, mobile, tablet } from "./media-queries";
 
 export const StyledApp = styled.div`
@@ -7,11 +8,10 @@ export const StyledApp = styled.div`
   text-align: center;
   min-height: 100vh;
   background: ${({ theme }) => theme.appBackground};
-  // background: url(${whitePage});
-  /* background: url("./assets/white1.jpg"); */
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // background-attachment: fixed;
+  background: url(${({ theme }) => theme.backgroundImage});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 `;
 
 export const StyledHeader = styled.div`
@@ -78,6 +78,7 @@ export const StyledFooter = styled.div`
 export const StyledLayout = styled.div`
   padding: 20px;
   text-align: left;
+  // backdrop-filter: blur(4px);
 
   ${mobile`
   padding: 10px;

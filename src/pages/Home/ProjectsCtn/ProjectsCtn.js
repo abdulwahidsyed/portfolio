@@ -50,8 +50,6 @@ export default memo(ProjectsCtn);
 
 const Container = styled(StyledInputSection)`
   display: block;
-  // max-height: 400px;
-  // overflow: auto;
 `;
 
 const StyledRemoveBtn = styled(Button)`

@@ -3,9 +3,10 @@ import { desktop, laptop, mobile, tablet } from "./media-queries";
 
 export const StyledSection = styled.div`
   border: 1px solid #00000029;
-  backdrop-filter: blur(10px);
-  box-shadow: ${({ theme }) => theme.sectionBoxShadow};
   padding: 20px 30px;
+  backdrop-filter: blur(3px);
+  box-shadow: ${({ theme }) => theme.sectionBoxShadow};
+  background: ${({ theme }) => theme.sectionBackground};
 
   ${mobile`
     padding: 20px 8px 8px 8px;
@@ -26,22 +27,22 @@ export const StyledSection = styled.div`
 
 export const StyledBox = styled.div`
   border: 1px solid #00000029;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(3px);
   box-shadow: ${({ theme }) => theme.sectionBoxShadow};
+  background: ${({ theme }) => theme.sectionBackground};
   padding: 20px 20px;
   margin-bottom: 40px;
-
-  background: linear-gradient(45deg, #6564645e, transparent);
+  // background: linear-gradient(45deg, #6564645e, transparent);
 `;
 
 export const StyledInputSection = styled.div`
   margin: 80px 0;
   border: 1px solid #00000029;
-  backdrop-filter: blur(10px);
   padding: 20px 30px;
-  box-shadow: ${({ theme }) => theme.sectionBoxShadow};
   display: flex;
   gap: 40px;
+  backdrop-filter: blur(3px);
+  box-shadow: ${({ theme }) => theme.sectionBoxShadow};
   background: ${({ theme }) => theme.sectionBackground};
   ${mobile`
     padding: 20px 8px 8px 8px;
@@ -72,4 +73,37 @@ export const StyledFlexSection = styled.div`
   `} ${desktop`
     flex-direction: row;
   `};
+`;
+
+export const StyledMatrixCtn = styled.div`
+  flex-wrap: wrap;
+  position: relative;
+  display: flex;
+  gap: 40px;
+
+  & > div {
+    flex-basis: calc(50% - 20px);
+    box-sizing: border-box;
+  }
+
+  ${mobile`
+    flex-direction: column;
+  `}
+
+  ${tablet`
+    flex-direction: row;
+  `}
+
+  ${laptop`
+    flex-direction: row;
+  `}
+
+  ${desktop`
+    flex-direction: row;
+  `}
+`;
+
+export const StyledMatrixChild = styled.div`
+  border: ${(props) => (props.newlyAdded ? "1px solid #ffffff63" : "unset")};
+  padding: ${(props) => (props.newlyAdded ? "0 4px" : "0")};
 `;

@@ -36,9 +36,6 @@ const StyledCtn = styled.div`
 
 const StyledBoxLoc = styled(StyledBox)`
   border: none;
-  // background: #ffffff;
-  // box-shadow: 10px 10px 1px rgba(221, 221, 221, 1),
-  //   0 10px 20px rgba(204, 204, 204, 1);
 `;
 
 const StyledFlex = styled.div`

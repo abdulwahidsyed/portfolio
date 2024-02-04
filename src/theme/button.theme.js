@@ -4,16 +4,16 @@ const { commonDangerBtnBorder } = commonTheme;
 export const buttonTheme = {
   dark: {
     commonDangerBtnBorder,
-    buttonColor: "black",
+    buttonColor: "white",
     buttonBorder: "1px solid black",
     buttonHoverOutline: "1px solid black",
     buttonBackground:
-      "linear-gradient(48deg, rgb(30 30 30) 0%, rgba(255,255,255,1) 100%)",
+      "linear-gradient(48deg, rgb(255 255 255 / 0%) 0%, rgba(255,255,255,1) 100%)",
     buttonBackgroundHover:
-      "linear-gradient(48deg, rgb(30 30 30 / 26%) 0%,rgba(255, 255, 255, 1) 100%)",
+      "linear-gradient(48deg, rgb(30 30 30) 0%, rgb(255 255 255 / 16%) 100%)",
     // need to change
-    boxShadowButton: "12px 10px 6px 1px rgb(255 255 255 / 14%)",
-    boxShadowButtonHover: "0 0px 0px 2px rgb(255 255 255 / 30%)",
+    boxShadowButton: "6px 4px 6px 1px rgb(0 0 0)",
+    boxShadowButtonHover: "0 0px 0px 1px rgb(0 0 0 / 30%)",
 
     dangerBtnColor: "black",
     dangerBtnBorder: "none",
@@ -31,7 +31,7 @@ export const buttonTheme = {
     buttonBorder: "1px solid white",
     buttonHoverOutline: "1px solid white",
     buttonBackground:
-      "linear-gradient(48deg, rgb(30 30 30 / 26%) 0%, rgba(255,255,255,1) 100%)",
+      "linear-gradient(48deg, rgb(255 255 255 / 0%) 0%, rgba(255,255,255,1) 100%)",
     buttonBackgroundHover:
       "linear-gradient(311deg, rgb(30 30 30 / 26%) 0%,rgba(255, 255, 255, 1) 100%)",
     // "linear-gradient(311deg, rgb(30 30 30 / 26%) 0%,rgba(255, 255, 255, 1) 100%)",

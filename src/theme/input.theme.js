@@ -11,16 +11,16 @@ export const inputTheme = {
     commonDangerInputBorder,
     commonDangerInputPlaceholderColor,
 
-    inputColor: "black",
-    inputBackground: "white",
+    inputColor: "white",
+    inputBackground: "#ffffff1a",
     inputIsDisabled: "gray",
     inputBorder: "1px solid black",
-    inputPlaceholderColor: "#454444",
-    inputLabelColor: "black",
+    inputPlaceholderColor: "gray",
+    inputLabelColor: "white",
 
-    dropdownOptionBG: "#ffffff",
-    dropdownOptionSelectedBG: "#454444",
-    dropdownOptionHoverBG: "#d5d5d5",
+    dropdownOptionBG: "#ffffff1a",
+    dropdownOptionSelectedBG: "gray",
+    dropdownOptionHoverBG: "#403e3e",
 
     commonInputErrorBorder,
   },
