@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/553.cfb59b91.chunk.js","mappings":"gJAAA,MAIA,EAJqBA,KACZC,EAAAA,EAAAA,KAAA,KAAAC,SAAG,S","sources":["pages/Errors/NoMatchRoute.js"],"sourcesContent":["const NoMatchRoute = () => {\n  return <p>Error</p>;\n};\n\nexport default NoMatchRoute;\n"],"names":["NoMatchRoute","_jsx","children"],"sourceRoot":""}
