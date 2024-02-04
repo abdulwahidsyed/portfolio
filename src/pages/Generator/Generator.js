@@ -14,6 +14,7 @@ import {
   generateSummary,
   updateAllInputs,
 } from "../../redux/homeSlice/home.slice";
+import { WorkExperienceGenerator } from "./WorkExperienceGenerator";
 
 const Generator = () => {
   const navigate = useNavigate();
@@ -50,6 +51,7 @@ const Generator = () => {
         <HeaderResume data={summary?.basicDetails} />
         <SkillsGenerator data={summary?.commonSkills} />
         <ProjectGenerator data={summary?.projects} />
+        <WorkExperienceGenerator data={summary?.workExperience} />
         <EducationGenerator data={summary?.education} />
       </PrintCtn>
       <NavigatorButtons navigateHandler={navigateHandler} isLastPage />

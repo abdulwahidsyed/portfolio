@@ -1,20 +1,12 @@
 import styled from "styled-components";
 import {
+  StyledAnchor,
   StyledHeadingMedium,
   StyledHeadingSmall,
   StyledParagraphBold,
 } from "../../components/UI/Styled";
 
 export const HeaderResume = ({ data = {} }) => {
-  // {
-  //     "name": "Syed Abdul Wahid",
-  //     "designation": "MERN stack developer (React, Node.js)",
-  //     "mail": "abdulwahid.syed@outlook.com",
-  //     "phone": "+91 9581122911",
-  //     "linkedinProfile": "www.linkedin.com/in/abdul-wahid-syed-8b5728265",
-  //     "githubProfile": "https://github.com/abdulwahidsyed",
-  //     "description": "With 5+ years of software development experience, I have contributed to projects small and large, demonstrating my professionalism with extremely high quality and reliability. Being a professional developer means understanding all the requirements of a project and finding the best way to implement it to a high-quality standard. As a senior full-stack engineer, I am proficient with modern web languages and I always focus on project structures and coding style, and etc.  I'm considering myself one of the most qualified engineers."
-  // }
   return (
     <StyledCtn>
       <StyledAvatar>
@@ -28,8 +20,18 @@ export const HeaderResume = ({ data = {} }) => {
         <StyledUL>
           <StyledLI>Email: {data.mail}</StyledLI>
           <StyledLI>Phone: {data.phone}</StyledLI>
-          <StyledLI>linkedin: {data.linkedinProfile}</StyledLI>
-          <StyledLI>Github: {data.githubProfile}</StyledLI>
+          <StyledLI>
+            linkedin:{" "}
+            <StyledAnchor target="_black" href={data.linkedinProfile}>
+              {data.linkedinProfile}
+            </StyledAnchor>
+          </StyledLI>
+          <StyledLI>
+            Github:{" "}
+            <StyledAnchor target="_black" href={data.githubProfile}>
+              {data.githubProfile}
+            </StyledAnchor>
+          </StyledLI>
         </StyledUL>
       </StyledDescriptionBox>
     </StyledCtn>

@@ -151,7 +151,7 @@ export const inputs_education_mock = [
 
 export const inputs_work_experience_mock = [
   {
-    name: "project",
+    name: "projectName",
     label: "Project",
     placeholder: "Project",
     type: "text",
@@ -392,11 +392,15 @@ export const autoPopulateInputs = () => {
     ],
     workExperience: [
       {
-        project: "",
+        projectName: "Resume Generator",
         projectType: "Own Application",
         duration: "",
-        description: [],
-        github: "",
+        description: [
+          "A React web application built to generate resumes for the users. Included features are Authentication, Inputs for General Info, Skills, Projects, Education, Theming, Resume theming etc.",
+          "Built beautifully with different types of resume themes.",
+          "Used a selective tools or packages like styled-components, Redux Tool Kit.",
+        ],
+        github: "https://github.com/abdulwahidsyed/portfolio",
         deployedURL: "",
         bulletPointsWorkExp: [],
       },

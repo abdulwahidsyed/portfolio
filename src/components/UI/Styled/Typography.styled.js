@@ -75,24 +75,24 @@ export const StyledParagraphSmall = styled.p`
 
 // Anchor tags (links)
 
-export const StyledAnchor = styled.p`
-  color: color: ${({ theme }) => theme.commonAnchorColor};
+export const StyledAnchor = styled.a`
+  color: ${({ theme }) => theme.commonAnchorColor} !important;
   font-size: 12px;
   font-weight: 600;
   line-height: 18.2px;
   letter-spacing: 0px;
-
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
-    text-decoration-color: color: ${({ theme }) => theme.commonAnchorColor};
+    text-decoration-color: ${({ theme }) => theme.commonAnchorColor};
     text-decoration: underline;
     text-decoration-style: solid;
   }
 `;
 
 export const StyledAnchorSmall = styled.p`
-  color: color: ${({ theme }) => theme.commonAnchorColor};
+  color: ${({ theme }) => theme.commonAnchorColor};
   font-size: 14px;
   font-weight: 400;
   line-height: 18.2px;
@@ -101,7 +101,7 @@ export const StyledAnchorSmall = styled.p`
   cursor: pointer;
 
   &:hover {
-    text-decoration-color: color: ${({ theme }) => theme.commonAnchorColor};
+    text-decoration-color: ${({ theme }) => theme.commonAnchorColor};
     text-decoration: underline;
     text-decoration-style: solid;
   }
