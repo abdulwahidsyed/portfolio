@@ -51,6 +51,8 @@ const Home = () => {
     summary,
   } = useSelector((st) => st.home);
 
+  console.log("my inputsProjects", inputsProjects);
+
   const onChange = (e) => {
     const { name, value } = e.target;
 

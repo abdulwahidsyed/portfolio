@@ -30,6 +30,16 @@ export const ProjectGenerator = ({ data = [] }) => {
             ))}
           </StyledPDBox>
           <StyledParagraphBold style={{ marginTop: "26px" }}>
+            Skills used
+          </StyledParagraphBold>
+          <StyledUL>
+            {el.skillsUsed.map((r) => (
+              <StyledLI>
+                <StyledParagraph>{r}</StyledParagraph>
+              </StyledLI>
+            ))}
+          </StyledUL>
+          <StyledParagraphBold style={{ marginTop: "26px" }}>
             Roles & Responsibilities
           </StyledParagraphBold>
           <StyledUL>
