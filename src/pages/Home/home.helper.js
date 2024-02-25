@@ -269,10 +269,10 @@ export const autoPopulateInputs = () => {
     commonSkills: [
       {
         frontend:
-          "React, Redux, RTK, Router, javascript, html, css, Angular, jest, RTL",
+          "React, Redux, RTK, Router, javascript, html, css, Angular, jest, RTL, D3",
         backend: "Node.js, Express.js, graphQL",
         databases: "MongoDB, SQL",
-        developmentTools: "Docker, Jira, github, gitlab, figma, ",
+        developmentTools: "Docker, Jira, github, gitlab, figma",
       },
     ],
     education: [
