@@ -299,7 +299,7 @@ export const autoPopulateInputs = () => {
         projectDuration: "01-09-2023 to Present",
         skillsUsed: [
           "Frontend: React, RTK(Redux Tool kit), MUX Component library(Storybook), jest, RTL(testing)",
-          "Backend: Node.js, Express.js",
+          "Backend: Node.js, Express.js, JWT Authentication, Authorization",
           "Databases: SQL",
         ],
         projectDescription: [
@@ -324,6 +324,7 @@ export const autoPopulateInputs = () => {
         projectDuration: "19-09-2022 to 25-08-2023",
         skillsUsed: [
           "Frontend: React, Superset's opensource Micro Frontend, jest, RTL(testing), html, css, javascript",
+          "Packages: d3 js, Leaflet js, Chart js",
         ],
         projectDescription: [
           "Worked on a new product which is based on superset, an opensource micro-frontend application. This application is all about creating charts and maps based on existing superset's elements and components with the theming of CGI.",
