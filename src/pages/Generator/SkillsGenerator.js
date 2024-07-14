@@ -36,6 +36,19 @@ export const SkillsGenerator = ({ data = [] }) => {
         <StyledParagraphBold>Databases: </StyledParagraphBold>
         <StyledParagraph> {basicData.databases}</StyledParagraph>
       </StyledBox>
+      {basicData.cloud ? (
+        <StyledBox>
+          <StyledParagraphBold>Cloud: </StyledParagraphBold>
+          <StyledParagraph> {basicData.cloud}</StyledParagraph>
+        </StyledBox>
+      ) : null}
+      {basicData.devOps ? (
+        <StyledBox>
+          <StyledParagraphBold>DevOps: </StyledParagraphBold>
+          <StyledParagraph> {basicData.devOps}</StyledParagraph>
+        </StyledBox>
+      ) : null}
+
       <StyledBox>
         <StyledParagraphBold>Development Tools: </StyledParagraphBold>
         <StyledParagraph> {basicData.developmentTools}</StyledParagraph>

@@ -73,6 +73,14 @@ export const StyledParagraphSmall = styled.p`
   letter-spacing: 0px;
 `;
 
+export const StyledPGrayaragraphSmall = styled.span`
+  color: ${({ theme }) => theme.commonGrayColor} !important;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 18.2px;
+  letter-spacing: 0px;
+`;
+
 // Anchor tags (links)
 
 export const StyledAnchor = styled.a`

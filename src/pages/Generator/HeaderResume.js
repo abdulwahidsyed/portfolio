@@ -18,20 +18,24 @@ export const HeaderResume = ({ data = {} }) => {
           {data.description}
         </StyledParagraphBold>
         <StyledUL>
-          <StyledLI>Email: {data.mail}</StyledLI>
-          <StyledLI>Phone: {data.phone}</StyledLI>
-          <StyledLI>
-            linkedin:{" "}
-            <StyledAnchor target="_black" href={data.linkedinProfile}>
-              {data.linkedinProfile}
-            </StyledAnchor>
-          </StyledLI>
-          <StyledLI>
-            Github:{" "}
-            <StyledAnchor target="_black" href={data.githubProfile}>
-              {data.githubProfile}
-            </StyledAnchor>
-          </StyledLI>
+          {data.mail && <StyledLI>Email: {data.mail}</StyledLI>}
+          {data.phone && <StyledLI>Phone: {data.phone}</StyledLI>}
+          {data.linkedinProfile && (
+            <StyledLI>
+              linkedin:{" "}
+              <StyledAnchor target="_black" href={data.linkedinProfile}>
+                {data.linkedinProfile}
+              </StyledAnchor>
+            </StyledLI>
+          )}
+          {data.githubProfile && (
+            <StyledLI>
+              Github:{" "}
+              <StyledAnchor target="_black" href={data.githubProfile}>
+                {data.githubProfile}
+              </StyledAnchor>
+            </StyledLI>
+          )}
         </StyledUL>
       </StyledDescriptionBox>
     </StyledCtn>
@@ -39,7 +43,7 @@ export const HeaderResume = ({ data = {} }) => {
 };
 
 export const StyledCtn = styled.div`
-  min-height: 400px;
+  min-height: 300px;
   background: black;
   display: flex;
   padding: 30px;

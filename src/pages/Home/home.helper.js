@@ -86,6 +86,20 @@ export const inputs_common_skills_mock = [
     value: "",
   },
   {
+    name: "cloud",
+    label: "Cloud",
+    placeholder: "Cloud",
+    type: "text",
+    value: "",
+  },
+  {
+    name: "devOps",
+    label: "DevOps",
+    placeholder: "DevOps",
+    type: "text",
+    value: "",
+  },
+  {
     name: "developmentTools",
     label: "Development Tools",
     placeholder: "Development Tools",
@@ -258,7 +272,7 @@ export const autoPopulateInputs = () => {
   const res = {
     basicDetails: {
       name: "Syed Abdul Wahid",
-      designation: "MERN stack developer (React, Node.js)",
+      designation: "Senior Full stack developer (MERN)",
       mail: "abdulwahid.syed@outlook.com",
       phone: "+91 9581122911",
       linkedinProfile: "www.linkedin.com/in/abdul-wahid-syed-8b5728265",
@@ -270,9 +284,12 @@ export const autoPopulateInputs = () => {
       {
         frontend:
           "React, Redux, RTK, Router, javascript, html, css, Angular, jest, RTL, D3",
-        backend: "Node.js, Express.js, graphQL",
-        databases: "MongoDB, SQL",
-        developmentTools: "Docker, Jira, github, gitlab, figma",
+        backend: "Node.js, Express.js, Rest APIs, graphQL",
+        databases: "MongoDB, MY SQL",
+        cloud: "AWS, Azure, GCP",
+        devOps: "CI/CD, Docker, Kubernetes",
+        developmentTools:
+          "Scrum/Agile, Jira, github, gitlab, figma, Confluence",
       },
     ],
     education: [
@@ -293,19 +310,24 @@ export const autoPopulateInputs = () => {
     ],
     projects: [
       {
-        projectName: "CSL(Customer Secure Login)",
+        projectName: "John Hancock - CSL(Customer Secure Login)",
         role: "Senior Full Stack Engineer",
         companyName: "Criska Business Consulting PVT LTD",
         projectDuration: "01-09-2023 to Present",
         skillsUsed: [
           "Frontend: React, RTK(Redux Tool kit), MUX Component library(Storybook), jest, RTL(testing)",
           "Backend: Node.js, Express.js, JWT Authentication, Authorization",
-          "Databases: SQL",
+          "Databases: MY SQL",
+          "Cloud: AWS, Azure",
+          "DevOps: CI/CD, Docker, Kubernetes",
+          "DevelopmentTools: Scrum/Agile, Jira, github, Figma, Confluence",
         ],
         projectDescription: [
-          "Created a Monorepo with React & node.js , application from scratch for Manulife's Insurance application for the client johnhancock. Integrated eslint, husky, lint-staged, prettier, adobe datalayer etc and combined of these tools, a maintainable, scallable, high quality frontend application got created.",
-          "Contributed to add tools like eslint, husky, likt-staged prettier and added a layer of security to the code that is going to be committed.",
-          "Built a robust architectural setup which saved a lot of code-review time.",
+          "Single Sign On, Multi-tenant, RBAC, AI Powered",
+          "Built a Monorepo with React & node.js , application from scratch for Manulife's Insurance application. Integrated eslint, husky, lint-staged, prettier, adobe datalayer etc and combined of these tools, a maintainable, scallable, high quality frontend application got created.",
+          "Added AI chatbot using ChatGPT's api",
+          "Contributed to add tools like eslint, husky, likt-staged, prettier and added a layer of security to the code that is going to be committed.",
+          "Built a robust architectural setup excellent for saclability, maintability and performance.",
         ],
         rolesAndResponsibilities: [
           "Worked for Code Quality and Technical Excellence to achieve and maintain high code quality and overall technical abilities to perform code reviews and help catch architectural and technical issues early in the process.",
@@ -394,7 +416,7 @@ export const autoPopulateInputs = () => {
     workExperience: [
       {
         projectName: "Resume Generator",
-        projectType: "Own Application",
+        projectType: "Portfolio",
         duration: "",
         description: [
           "A React web application built to generate resumes with multiple themes for the users. A unique set of css desined was selected with multiple application theming. Included features are Authentication, Inputs for General Info, Skills, Projects, Education, Theming, Resume theming etc.",
