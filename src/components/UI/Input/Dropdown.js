@@ -9,7 +9,6 @@ export const Dropdown = ({ options, onChange, name, isDisabled, value }) => {
 
   const getCustomStyles = (theme) => ({
     control: (baseStyles, state) => {
-      console.log("my state", state);
       return {
         ...baseStyles,
         borderColor: state.isFocused ? "#00a7ff" : theme.inputBorder,

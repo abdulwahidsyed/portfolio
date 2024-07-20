@@ -273,8 +273,8 @@ export const autoPopulateInputs = () => {
     basicDetails: {
       name: "Syed Abdul Wahid",
       designation: "Senior Full stack developer (MERN)",
-      mail: "abdulwahid.syed@outlook.com",
-      phone: "+91 9581122911",
+      mail: "wahidabdul98@gmail.com",
+      phone: "+91 7013610142",
       linkedinProfile: "www.linkedin.com/in/abdul-wahid-syed-8b5728265",
       githubProfile: "https://github.com/abdulwahidsyed",
       description:
@@ -284,7 +284,8 @@ export const autoPopulateInputs = () => {
       {
         frontend:
           "React, Redux, RTK, Router, javascript, html, css, Angular, jest, RTL, D3",
-        backend: "Node.js, Express.js, Rest APIs, graphQL",
+        backend:
+          "Node.js, Express.js, Rest APIs, graphQL, Kafka, Kibana, Grafana",
         databases: "MongoDB, MY SQL",
         cloud: "AWS, Azure, GCP",
         devOps: "CI/CD, Docker, Kubernetes",
@@ -316,7 +317,7 @@ export const autoPopulateInputs = () => {
         projectDuration: "01-09-2023 to Present",
         skillsUsed: [
           "Frontend: React, RTK(Redux Tool kit), MUX Component library(Storybook), jest, RTL(testing)",
-          "Backend: Node.js, Express.js, JWT Authentication, Authorization",
+          "Backend: Node.js, Express.js, JWT Authentication, Authorization, Kafka, Kibana, Grafana",
           "Databases: MY SQL",
           "Cloud: AWS, Azure",
           "DevOps: CI/CD, Docker, Kubernetes",
@@ -481,5 +482,3 @@ export const generateSummaryHelper = (dat) => {
 
   return obj;
 };
-
-// keystack from 10-03-2018 to 31-08-2022 ----- 4years 5months 30days

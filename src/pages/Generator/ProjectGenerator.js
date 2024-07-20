@@ -22,12 +22,10 @@ export const ProjectGenerator = ({ data = [] }) => {
 
   const generateDuration = (arr) => {
     if (arr.length <= 1) return arr[0].projectDuration;
-    const joinedDate = arr[0].projectDuration.split("to")[0];
-    const releivingDate = arr[arr.length - 1].projectDuration.split("to")[0];
-    return releivingDate + "-" + joinedDate;
+    const joinedDate = arr[arr.length - 1].projectDuration.split("to")[0];
+    const releivingDate = arr[0].projectDuration.split("to")[1];
+    return `${joinedDate} - ${releivingDate}`;
   };
-
-  console.log("my companies", companies);
 
   if (!data.length) return;
   return (

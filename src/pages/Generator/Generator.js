@@ -25,13 +25,12 @@ const Generator = () => {
   const { summary } = useSelector((st) => st.home);
 
   useEffect(() => {
-    // if (!summary) navigate("/");
     initialCall();
   }, []);
 
-  useEffect(() => {
-    console.log("my summary", summary);
-  }, [summary]);
+  // useEffect(() => {
+  //   console.log("my summary", summary);
+  // }, [summary]);
 
   const initialCall = () => {
     const newInputs = autoPopulateInputs();
