@@ -6,7 +6,7 @@ import {
   StyledParagraphBold,
 } from "../../components/UI/Styled";
 
-export const HeaderResume = ({ data = {} }) => {
+export const PreviewHeading = ({ data = {} }) => {
   return (
     <StyledCtn>
       <StyledAvatar>

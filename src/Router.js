@@ -1,9 +1,10 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
+import { routePaths } from "./constants/paths.constants";
 
 const Router = () => {
-  const Home = lazy(() => import("./pages/Home/Home"));
-  const Generator = lazy(() => import("./pages/Generator/Generator"));
+  const Edit = lazy(() => import("./pages/Edit/Edit"));
+  const Preview = lazy(() => import("./pages/Preview/Preview"));
   const NoMatchRoute = lazy(() => import("./pages/Errors/NoMatchRoute"));
   const Templates = lazy(() => import("./pages/Templates/Templates"));
   const Library = lazy(() => import("./pages/Library/Library"));
@@ -11,23 +12,23 @@ const Router = () => {
   return (
     <Routes>
       <Route
-        path="/"
+        path={routePaths.home}
         element={
           <Suspense>
-            <Home />
+            <Edit />
           </Suspense>
         }
       />
       <Route
-        path="/generator"
+        path={routePaths.preview}
         element={
           <Suspense>
-            <Generator />
+            <Preview />
           </Suspense>
         }
       />
       <Route
-        path="templates"
+        path={routePaths.templates}
         element={
           <Suspense>
             <Templates />
@@ -35,7 +36,7 @@ const Router = () => {
         }
       />
       <Route
-        path="library"
+        path={routePaths.library}
         element={
           <Suspense>
             <Library />

@@ -7,7 +7,7 @@ import {
   StyledParagraphBold,
 } from "../../components/UI/Styled";
 
-export const EducationGenerator = ({ data = [] }) => {
+export const PreviewEducation = ({ data = [] }) => {
   if (!data.length) return;
   return (
     <StyledCtn>

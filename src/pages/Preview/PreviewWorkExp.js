@@ -8,7 +8,7 @@ import {
   StyledSection,
 } from "../../components/UI/Styled";
 
-export const WorkExperienceGenerator = ({ data = [] }) => {
+export const PreviewWorkExp = ({ data = [] }) => {
   return (
     <StyledCtn>
       <StyledHeadingMedium>Work Experience</StyledHeadingMedium>

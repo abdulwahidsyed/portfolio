@@ -11,6 +11,7 @@ import styled, { ThemeProvider } from "styled-components";
 function App() {
   const { showBackdrop } = useSelector((st) => st.master);
   const theme = useThemes();
+  console.log("Version: 2");
 
   return (
     <ThemeProvider theme={theme}>

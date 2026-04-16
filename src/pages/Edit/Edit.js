@@ -17,19 +17,21 @@ import {
   updateWorkExperience,
   updateVisibleComponent,
   generateSummary,
-} from "../../redux/homeSlice/home.slice";
+  inputsSelector,
+} from "../../redux/inputsSlice/inputs.slice";
 import BasicFieldsCtn from "./BasicFieldsCtn/BasicFieldsCtn";
 import SkillsCtn from "./SkillsCtn/SkillsCtn";
 import EducationSection from "./EducationSection/EducationSection";
 import WorkExperienceCtn from "./WorkExperienceCtn/WorkExperienceCtn";
 import ProjectsCtn from "./ProjectsCtn/ProjectsCtn";
 import { useCallback, useRef } from "react";
-import { FooterHome } from "./FooterHome";
+import { FooterHome } from "./FooterEdit";
 import { NavigatorButtons } from "../../components/NavigatorButtons/NavigatorButtons";
 import { useNavigate } from "react-router-dom";
-import { generateSummaryHelper } from "./home.helper";
+import { generateSummaryHelper } from "./edit.helper";
+import { routePaths } from "../../constants/paths.constants";
 
-const Home = () => {
+const Edit = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -42,19 +44,18 @@ const Home = () => {
   const refs = [basicRef, skillsRef, projectRef, workExpRef, educationRef];
 
   const {
-    inputsBasic,
-    inputsEducation,
-    inputsWorkExperience,
-    inputsSkills,
-    inputsProjects,
+    basicInputs,
+    educationInputs,
+    workExpInputs,
+    skillsInputs,
+    projectInputs,
     visibleComponent,
-    summary,
-  } = useSelector((st) => st.home);
+  } = useSelector(inputsSelector);
 
   const onChange = (e) => {
     const { name, value } = e.target;
 
-    const dat = inputsBasic.map((el) => ({
+    const dat = basicInputs.map((el) => ({
       ...el,
       value: el.name === name ? value : el.value,
       isError: el.name === name ? false : el.isError,
@@ -64,6 +65,7 @@ const Home = () => {
   };
 
   const addNewSkillInput = () => {
+    const data = {};
     dispatch(addNewSkill());
   };
 
@@ -73,16 +75,14 @@ const Home = () => {
 
   const onChangeSkills = (e, i) => {
     const { value, name } = e.target;
-    const matrix = [...inputsSkills];
 
-    const updatedInps = matrix[i].map((el) => {
+    const payload = skillsInputs.map((el) => {
       if (name === el.name) {
         return { ...el, value };
       }
       return el;
     });
-    matrix[i] = updatedInps;
-    dispatch(updateSkills(matrix));
+    dispatch(updateSkills(payload));
   };
 
   const addNewEducationSection = () => {
@@ -92,7 +92,7 @@ const Home = () => {
   const onChangeEducation = (e, i) => {
     const { value, name } = e.target;
 
-    const dat = [...inputsEducation];
+    const dat = [...educationInputs];
     const arr = dat[i].map((el) => {
       if (el.name === name) {
         return { ...el, value };
@@ -119,7 +119,7 @@ const Home = () => {
   const onChangeWorkExperience = (e, i, type, b) => {
     const { value, name } = e.target;
 
-    const dat = [...inputsWorkExperience];
+    const dat = [...workExpInputs];
     const arr = dat[i].map((el) => {
       if (el.name === name) {
         return { ...el, value };
@@ -142,7 +142,7 @@ const Home = () => {
   const onChangeProjectLoc = (e, i) => {
     const { value, name } = e.target;
 
-    const dat = [...inputsProjects];
+    const dat = [...projectInputs];
     const updated = dat[i].map((el) => ({
       ...el,
       value: el.name === name ? value : el.value,
@@ -167,7 +167,7 @@ const Home = () => {
 
   const validateInputs = () => {
     let error = false;
-    const inps = inputsBasic.map((el) => {
+    const inps = basicInputs.map((el) => {
       const k = el.isRequired && !el.value;
       if (!error && k) error = true;
       return { ...el, isError: k };
@@ -188,18 +188,18 @@ const Home = () => {
     }
 
     const dat = {
-      inputsBasic,
-      inputsEducation,
-      inputsWorkExperience,
-      inputsSkills,
-      inputsProjects,
+      basicInputs,
+      educationInputs,
+      workExpInputs,
+      skillsInputs,
+      projectInputs,
     };
 
     // if (!summary) {
     //   const payload = generateSummaryHelper(dat);
     //   dispatch(generateSummary(payload));
     // }
-    navigate("/generator");
+    navigate(routePaths.preview);
   };
 
   const callbackRef = useCallback(() => {
@@ -217,7 +217,7 @@ const Home = () => {
         root: null,
         threshold: 0.8,
         rootMargin: "100px",
-      }
+      },
     );
 
     refs.forEach((ref, i) => {
@@ -233,26 +233,26 @@ const Home = () => {
       <StyledHeadingBig>Add details</StyledHeadingBig>
       <BasicFieldsCtn
         basicRef={basicRef}
-        inputsBasic={inputsBasic}
+        basicInputs={basicInputs}
         onChange={onChange}
       />
       <SkillsCtn
         skillsRef={skillsRef}
         addNewSkillInput={addNewSkillInput}
-        inputsMatrix={inputsSkills}
+        inputsMatrix={skillsInputs}
         onChange={onChangeSkills}
         removeSkillInput={removeSkillInput}
       />
       <ProjectsCtn
         projectRef={projectRef}
-        inputsMatrix={inputsProjects}
+        inputsMatrix={projectInputs}
         addNewProject={addNewProjectLoc}
         removeProject={removeProjectLoc}
         onChange={onChangeProjectLoc}
       />
       <WorkExperienceCtn
         workExpRef={workExpRef}
-        inputsMatrix={inputsWorkExperience}
+        inputsMatrix={workExpInputs}
         addWorkExperience={addWorkExperienceLoc}
         removeWorkExperience={removeWorkExperienceLoc}
         onChange={onChangeWorkExperience}
@@ -260,7 +260,7 @@ const Home = () => {
       <EducationSection
         educationRef={educationRef}
         addNewEducationSection={addNewEducationSection}
-        inputsMatrix={inputsEducation}
+        inputsMatrix={educationInputs}
         onChange={onChangeEducation}
         removeEducation={removeEducationLoc}
       />
@@ -270,4 +270,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Edit;

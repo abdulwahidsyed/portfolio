@@ -18,6 +18,8 @@ export const SkillsCtn = ({
   onChange,
   removeSkillInput,
 }) => {
+  console.log("abdul inputsMatrix", inputsMatrix);
+
   return (
     <Container ref={skillsRef}>
       <StyledFlex>
@@ -25,7 +27,14 @@ export const SkillsCtn = ({
         <Button onClick={addNewSkillInput}>Add New Skill</Button>
       </StyledFlex>
 
-      <StyledMatrixCtn>
+      {inputsMatrix.map((inp, i) => (
+        <StyledInpBox key={inp.name}>
+          <StyledInputLabel>{inp.label}</StyledInputLabel>
+          <Input {...inp} onChange={(e) => onChange(e, i)} />
+        </StyledInpBox>
+      ))}
+
+      {/* <StyledMatrixCtn>
         {inputsMatrix.map((inputs, i) => (
           <StyledMatrixChild key={inputs[0].key} newlyAdded={i > 0}>
             {inputs.map((inp) => (
@@ -44,7 +53,7 @@ export const SkillsCtn = ({
             ) : null}
           </StyledMatrixChild>
         ))}
-      </StyledMatrixCtn>
+      </StyledMatrixCtn> */}
     </Container>
   );
 };

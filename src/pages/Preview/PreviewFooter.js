@@ -4,7 +4,7 @@ import { mobile } from "../../components/UI/Styled/media-queries";
 import { Button } from "../../components/UI/Button/Button";
 import ReactToPrint from "react-to-print";
 
-export const FooterGenerator = ({ printRef }) => {
+export const PreviewFooter = ({ printRef }) => {
   return (
     <Ctn>
       <StyledFlexed>

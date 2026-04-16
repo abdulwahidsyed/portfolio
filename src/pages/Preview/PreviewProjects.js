@@ -10,7 +10,7 @@ import {
 import { useMemo } from "react";
 import { BasicHR } from "../../components/UI/HR/BasicHR";
 
-export const ProjectGenerator = ({ data = [] }) => {
+export const PreviewProjects = ({ data = [] }) => {
   const companies = useMemo(() => {
     return data.reduce((acu, cur) => {
       const k = { ...acu };

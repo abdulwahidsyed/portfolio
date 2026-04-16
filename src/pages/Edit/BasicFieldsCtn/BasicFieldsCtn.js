@@ -10,15 +10,15 @@ import {
 import { memo } from "react";
 import Input from "../../../components/UI/Input/Input";
 
-const BasicFieldsCtn = ({ inputsBasic, onChange, basicRef }) => {
+const BasicFieldsCtn = ({ basicInputs, onChange, basicRef }) => {
   return (
     <StyledCtn ref={basicRef}>
       <StyledHeadingMedium className="mb-20">Basic fields</StyledHeadingMedium>
       <StyledFlexSectionLoc style={{ margin: "0 0 10px 0 " }}>
-        {inputsBasic.map((input, i) => (
+        {basicInputs.map((input, i) => (
           <StyledInpBoxLoc
             key={input.name}
-            isLastChild={i == inputsBasic.length - 1}
+            isLastChild={i == basicInputs.length - 1}
           >
             <StyledInputLabel>{input.label}</StyledInputLabel>
             <Input {...input} onChange={onChange} />

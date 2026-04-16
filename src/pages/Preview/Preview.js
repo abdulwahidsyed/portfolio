@@ -1,20 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-import { FooterGenerator } from "./FooterGenerator";
+import { PreviewFooter } from "./PreviewFooter";
 import { useDispatch, useSelector } from "react-redux";
-import { HeaderResume } from "./HeaderResume";
+import { PreviewHeading } from "./PreviewHeading";
 import { NavigatorButtons } from "../../components/NavigatorButtons/NavigatorButtons";
-import { SkillsGenerator } from "./SkillsGenerator";
-import { EducationGenerator } from "./EducationGenerator";
-import { ProjectGenerator } from "./ProjectGenerator";
-import { autoPopulateInputs, generateSummaryHelper } from "../Home/home.helper";
+import { PreviewSkills } from "./PreviewSkills";
+import { PreviewEducation } from "./PreviewEducation";
+import { PreviewProjects } from "./PreviewProjects";
+import { autoPopulateInputs, generateSummaryHelper } from "../Edit/edit.helper";
 import {
   generateSummary,
+  inputsSelector,
   updateAllInputs,
-} from "../../redux/homeSlice/home.slice";
-import { WorkExperienceGenerator } from "./WorkExperienceGenerator";
+} from "../../redux/inputsSlice/inputs.slice";
+import { PreviewWorkExp } from "./PreviewWorkExp";
 
 const Generator = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const Generator = () => {
 
   const printRef = useRef();
 
-  const { summary } = useSelector((st) => st.home);
+  const { summary, skillsInputs } = useSelector(inputsSelector);
 
   useEffect(() => {
     initialCall();
@@ -36,6 +37,7 @@ const Generator = () => {
     const newInputs = autoPopulateInputs();
     dispatch(updateAllInputs(newInputs));
 
+    // checkHere
     const payload = generateSummaryHelper(newInputs);
     dispatch(generateSummary(payload));
   };
@@ -44,17 +46,19 @@ const Generator = () => {
     navigate("/");
   };
 
+  const data = useMemo(() => {}, []);
+
   return (
     <StyledCtn>
       <PrintCtn ref={printRef}>
-        <HeaderResume data={summary?.basicDetails} />
-        <SkillsGenerator data={summary?.commonSkills} />
-        <ProjectGenerator data={summary?.projects} />
-        <WorkExperienceGenerator data={summary?.workExperience} />
-        <EducationGenerator data={summary?.education} />
+        <PreviewHeading data={summary?.basicDetails} />
+        <PreviewSkills data={skillsInputs} />
+        <PreviewProjects data={summary?.projects} />
+        <PreviewWorkExp data={summary?.workExperience} />
+        <PreviewEducation data={summary?.education} />
       </PrintCtn>
       <NavigatorButtons navigateHandler={navigateHandler} isLastPage />
-      <FooterGenerator printRef={printRef} />
+      <PreviewFooter printRef={printRef} />
     </StyledCtn>
   );
 };

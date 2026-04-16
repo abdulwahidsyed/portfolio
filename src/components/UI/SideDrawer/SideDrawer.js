@@ -5,17 +5,17 @@ import { changeSideDrawer } from "../../../redux/masterSlice/master.slice";
 import { Backdrop } from "../Backdrop";
 import {
   generateSummaryHelper,
-  inputs_basic_mock,
-  inputs_common_skills_mock,
-  inputs_education_mock,
-  inputs_projects_mock,
-  inputs_work_experience_mock,
+  BASIC_INPUTS_META,
+  SKILLS_INPUTS_META,
+  EDUCATION_INPUTS_META,
+  PROJECT_INPUTS_META,
+  WORK_EXP_INPUTS_META,
   autoPopulateInputs,
-} from "../../../pages/Home/home.helper";
+} from "../../../pages/Edit/edit.helper";
 import {
   generateSummary,
   updateAllInputs,
-} from "../../../redux/homeSlice/home.slice";
+} from "../../../redux/inputsSlice/inputs.slice";
 import { StyledHeading } from "../Styled/Typography.styled";
 import { SideDrawerThemeDropdowns } from "./SideDrawerThemeDropdowns";
 import { useMemo } from "react";
@@ -47,6 +47,7 @@ export const SideDrawer = () => {
     const newInputs = autoPopulateInputs();
     dispatch(updateAllInputs(newInputs));
 
+    // checkHere
     const payload = generateSummaryHelper(newInputs);
     dispatch(generateSummary(payload));
     onClose();
@@ -54,11 +55,11 @@ export const SideDrawer = () => {
 
   const onClickClear = () => {
     const dat = {
-      inputsBasic: [...inputs_basic_mock],
-      inputsSkills: [[...inputs_common_skills_mock]],
-      inputsEducation: [[...inputs_education_mock]],
-      inputsWorkExperience: [[...inputs_work_experience_mock]],
-      inputsProjects: [[...inputs_projects_mock]],
+      basicInputs: [...BASIC_INPUTS_META],
+      skillsInputs: [[...SKILLS_INPUTS_META]],
+      educationInputs: [[...EDUCATION_INPUTS_META]],
+      workExpInputs: [[...WORK_EXP_INPUTS_META]],
+      projectInputs: [[...PROJECT_INPUTS_META]],
     };
     dispatch(updateAllInputs(dat));
     onClose();

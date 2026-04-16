@@ -1,4 +1,6 @@
-export const inputs_basic_mock = [
+import { toHyphenated, toTitleCase } from "../../uitls/utils";
+
+export const BASIC_INPUTS_META = [
   {
     name: "name",
     label: "Name",
@@ -63,7 +65,7 @@ export const inputs_basic_mock = [
   // },
 ];
 
-export const inputs_common_skills_mock = [
+export const SKILLS_INPUTS_META = [
   {
     name: "frontend",
     label: "Frontend",
@@ -108,7 +110,7 @@ export const inputs_common_skills_mock = [
   },
 ];
 
-export const inputs_new_skills_mock = [
+export const NEW_SKILLS_INPUTS_META = [
   {
     name: "skillHeading",
     label: "Skill Heading",
@@ -125,7 +127,7 @@ export const inputs_new_skills_mock = [
   },
 ];
 
-export const inputs_education_mock = [
+export const EDUCATION_INPUTS_META = [
   {
     name: "education",
     label: "Education",
@@ -163,7 +165,7 @@ export const inputs_education_mock = [
   },
 ];
 
-export const inputs_work_experience_mock = [
+export const WORK_EXP_INPUTS_META = [
   {
     name: "projectName",
     label: "Project",
@@ -216,7 +218,7 @@ export const inputs_work_experience_mock = [
   },
 ];
 
-export const inputs_projects_mock = [
+export const PROJECT_INPUTS_META = [
   {
     name: "projectName",
     label: "Project Name",
@@ -272,27 +274,43 @@ export const autoPopulateInputs = () => {
   const res = {
     basicDetails: {
       name: "Syed Abdul Wahid",
-      designation: "Senior Full stack developer (MERN)",
-      mail: "wahidabdul98@gmail.com",
-      phone: "+91 7013610142",
+      designation: "Senior Full stack developer",
+      mail: "abdulwahid.syed@outlook.com",
+      phone: "+91 9581122911",
       linkedinProfile: "www.linkedin.com/in/abdul-wahid-syed-8b5728265",
       githubProfile: "https://github.com/abdulwahidsyed",
       description:
-        "With 5+ years of software development experience, I have contributed to projects small and large, demonstrating my professionalism with extremely high quality and reliability. Being a professional developer means understanding all the requirements of a project and finding the best way to implement it to a high-quality standard. As a senior full-stack engineer, I am proficient with modern web languages and I always focus on project structures and coding style, and etc.  I'm considering myself one of the most qualified engineers.",
+        "With 8 years of software development experience, I have contributed to projects small and large, demonstrating my professionalism with extremely high quality and reliability. Being a professional developer means understanding all the requirements of a project and finding the best way to implement it to a high-quality standard. As a senior full-stack engineer, I am proficient with modern web languages and I always focus on project structures and coding style, and etc.  I'm considering myself one of the most qualified engineers. MERN",
     },
-    commonSkills: [
-      {
-        frontend:
-          "React, Redux, RTK, Router, javascript, html, css, Angular, jest, RTL, D3",
-        backend:
-          "Node.js, Express.js, Rest APIs, graphQL, Kafka, Kibana, Grafana",
-        databases: "MongoDB, MY SQL",
-        cloud: "AWS, Azure, GCP",
-        devOps: "CI/CD, Docker, Kubernetes",
-        developmentTools:
-          "Scrum/Agile, Jira, github, gitlab, figma, Confluence",
-      },
-    ],
+    commonSkills: {
+      Frontend:
+        "React, Redux, RTK, React Router, JavaScript, HTML, CSS, Angular, Jest, React Testing Library RTL, D3",
+
+      Backend: "Node.js, Express.js",
+
+      Security:
+        "Session Management (Redis), JWT, OAuth 2.0, IBM ISAM, Ping Identity, OIDC (familiar), SSO",
+
+      Databases: "Postgres, Redis, MongoDB, MySQL",
+
+      Cloud:
+        "AWS (EC2, Lambda, S3, CloudFront, ElastiCache, CloudWatch, KMS), Azure, GCP (familiar), Akamai CDN",
+
+      "API and Communication": "REST, WebSockets, GraphQL (familiar)",
+
+      Monitoring: "New Relic, Kibana, Grafana",
+
+      "CI/CD Tools":
+        "TeamCity, Jenkins, Github Actions, JFrog Artifactory, AWS CodePipeline, CodeBuild",
+
+      "Infrastructure (IAC)": "Terraform, Cloud Formation",
+
+      "Container and Orchestration": "Docker, Kubernetes (K8s)",
+
+      developmentTools: "Scrum/Agile, Jira, GitHub, GitLab, Figma, Confluence",
+      AI: "github copilot",
+    },
+
     education: [
       {
         education: "Diploma",
@@ -311,13 +329,27 @@ export const autoPopulateInputs = () => {
     ],
     projects: [
       {
+        projectName: "Citco",
+        role: "Senior Full Stack Engineer",
+        companyName: "Diamondpick",
+        projectDuration: "08-08-2024 to Present",
+        skillsUsed: [
+          "Frontend: React, RTK(Redux Tool kit), MUI Component library, jest, RTL(testing)",
+          "Backend: Node.js, Express.js, Python",
+          "Databases: Postgres, OracleDb",
+          "Cloud: AWS",
+          "DevOps: AWS",
+          "DevelopmentTools: Scrum/Agile, Jira, github, Figma, Confluence",
+        ],
+      },
+      {
         projectName: "John Hancock - CSL(Customer Secure Login)",
         role: "Senior Full Stack Engineer",
         companyName: "Criska Business Consulting PVT LTD",
-        projectDuration: "01-09-2023 to Present",
+        projectDuration: "01-09-2023 to 31-07-2024",
         skillsUsed: [
-          "Frontend: React, RTK(Redux Tool kit), MUX Component library(Storybook), jest, RTL(testing)",
-          "Backend: Node.js, Express.js, JWT Authentication, Authorization, Kafka, Kibana, Grafana",
+          "Frontend: React, RTK(Redux Tool kit), MUX Component library(Storybook), jest, RTL(testing), Adobe analytics",
+          "Backend: Node.js, Express.js, JWT Authentication, Authorization, Kafka, Kibana, Grafana, NewRelic",
           "Databases: MY SQL",
           "Cloud: AWS, Azure",
           "DevOps: CI/CD, Docker, Kubernetes",
@@ -431,15 +463,26 @@ export const autoPopulateInputs = () => {
     ],
   };
 
+  const skillsInputs = Object.keys(res.commonSkills).map((key, i) => {
+    return {
+      name: toHyphenated(key),
+      label: toTitleCase(key),
+      placeholder: key,
+      type: "text",
+      value: res.commonSkills[key],
+    };
+  });
+
   const dat = {
-    inputsBasic: mapHelper([...inputs_basic_mock], res.basicDetails),
-    inputsSkills: generateMatrix(res.commonSkills, [
-      ...inputs_common_skills_mock,
-    ]),
-    inputsEducation: generateMatrix(res.education, [...inputs_education_mock]),
-    inputsProjects: generateMatrix(res.projects, [...inputs_projects_mock]),
-    inputsWorkExperience: generateMatrix(res.workExperience, [
-      ...inputs_work_experience_mock,
+    basicInputs: mapHelper([...BASIC_INPUTS_META], res.basicDetails),
+    skillsInputs,
+    // skillsInputs: generateMatrix(res.commonSkills, [
+    //   ...SKILLS_INPUTS_META,
+    // ]),
+    educationInputs: generateMatrix(res.education, [...EDUCATION_INPUTS_META]),
+    projectInputs: generateMatrix(res.projects, [...PROJECT_INPUTS_META]),
+    workExpInputs: generateMatrix(res.workExperience, [
+      ...WORK_EXP_INPUTS_META,
     ]),
   };
   return dat;
@@ -473,11 +516,11 @@ const mapMatrixHelper = (dat) => {
 
 export const generateSummaryHelper = (dat) => {
   const obj = {
-    basicDetails: mapPayloadHelper(dat.inputsBasic),
-    commonSkills: mapMatrixHelper(dat.inputsSkills),
-    education: mapMatrixHelper(dat.inputsEducation),
-    projects: mapMatrixHelper(dat.inputsProjects),
-    workExperience: mapMatrixHelper(dat.inputsWorkExperience),
+    basicDetails: mapPayloadHelper(dat.basicInputs),
+    commonSkills: mapPayloadHelper(dat.skillsInputs),
+    education: mapMatrixHelper(dat.educationInputs),
+    projects: mapMatrixHelper(dat.projectInputs),
+    workExperience: mapMatrixHelper(dat.workExpInputs),
   };
 
   return obj;

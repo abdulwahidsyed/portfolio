@@ -1,24 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  inputs_basic_mock,
-  inputs_common_skills_mock,
-  inputs_new_skills_mock,
-  inputs_education_mock,
-  inputs_work_experience_mock,
-  inputs_projects_mock,
-} from "../../pages/Home/home.helper";
+  BASIC_INPUTS_META,
+  SKILLS_INPUTS_META,
+  NEW_SKILLS_INPUTS_META,
+  EDUCATION_INPUTS_META,
+  WORK_EXP_INPUTS_META,
+  PROJECT_INPUTS_META,
+} from "../../pages/Edit/edit.helper";
 
 const initialState = {
-  inputsBasic: [...inputs_basic_mock],
-  inputsSkills: [[...inputs_common_skills_mock]],
-  inputsEducation: [[...inputs_education_mock]],
-  inputsWorkExperience: [[...inputs_work_experience_mock]],
-  inputsProjects: [[...inputs_projects_mock]],
+  basicInputs: [...BASIC_INPUTS_META],
+  skillsInputs: [...SKILLS_INPUTS_META],
+  educationInputs: [[...EDUCATION_INPUTS_META]],
+  workExpInputs: [[...WORK_EXP_INPUTS_META]],
+  projectInputs: [[...PROJECT_INPUTS_META]],
   visibleComponent: "",
   summary: null,
 };
 
-const homeSlice = createSlice({
+const inputsSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
@@ -28,58 +28,58 @@ const homeSlice = createSlice({
       });
     },
     updateBasicInputs: (state, action) => {
-      state.inputsBasic = action.payload;
+      state.basicInputs = action.payload;
     },
 
     // new skills Start
     addNewSkill: (state, action) => {
-      state.inputsSkills.push([...inputs_new_skills_mock]);
+      state.skillsInputs.push(action.payload);
     },
     removeSkill: (state, action) => {
       const index = action.payload;
-      state.inputsSkills.splice(index, 1);
+      state.skillsInputs.splice(index, 1);
     },
     updateSkills: (state, action) => {
-      state.inputsSkills = action.payload;
+      state.skillsInputs = action.payload;
     },
     // new skills End
 
     // projects start
     addNewProject: (state, action) => {
-      state.inputsProjects.push([...inputs_projects_mock]);
+      state.projectInputs.push([...PROJECT_INPUTS_META]);
     },
     removeProject: (state, action) => {
       const index = action.payload;
-      state.inputsProjects.splice(index, 1);
+      state.projectInputs.splice(index, 1);
     },
     updateNewProject: (state, action) => {
-      state.inputsProjects = action.payload;
+      state.projectInputs = action.payload;
     },
     // projects end
 
     // work experience start
     addWorkExperience: (state, action) => {
-      state.inputsWorkExperience.push([...inputs_work_experience_mock]);
+      state.workExpInputs.push([...WORK_EXP_INPUTS_META]);
     },
     removeWorkExperience: (state, action) => {
       const index = action.payload;
-      state.inputsWorkExperience.splice(index, 1);
+      state.workExpInputs.splice(index, 1);
     },
     updateWorkExperience: (state, action) => {
-      state.inputsWorkExperience = action.payload;
+      state.workExpInputs = action.payload;
     },
     // work experience end
 
     // new Education Start
     addNewEducation: (state, action) => {
-      state.inputsEducation.push([...inputs_education_mock]);
+      state.educationInputs.push([...EDUCATION_INPUTS_META]);
     },
     updateEducationInputs: (state, action) => {
-      state.inputsEducation = action.payload;
+      state.educationInputs = action.payload;
     },
     removeEducation: (state, action) => {
       const index = action.payload;
-      state.inputsEducation.splice(index, 1);
+      state.educationInputs.splice(index, 1);
     },
     updateVisibleComponent: (state, action) => {
       state.visibleComponent = action.payload;
@@ -92,6 +92,8 @@ const homeSlice = createSlice({
     },
   },
 });
+
+export const inputsSelector = (st) => st.inputs;
 
 export const {
   updateAllInputs,
@@ -116,5 +118,6 @@ export const {
 
   updateVisibleComponent,
   generateSummary,
-} = homeSlice.actions;
-export default homeSlice.reducer;
+} = inputsSlice.actions;
+
+export default inputsSlice.reducer;
