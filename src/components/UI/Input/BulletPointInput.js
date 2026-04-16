@@ -1,11 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "../Button/Button";
-import {
-  StyledBulletPointsCtn,
-  StyledInput,
-  StyledRow,
-  StyledTextarea,
-} from "../Styled";
+import { StyledBulletPointsCtn, StyledRow, StyledTextarea } from "../Styled";
 
 export const BulletPointInput = ({ onChange, value, type, ...props }) => {
   const [isErrorIndex, setIsErrorIndex] = useState(null);
@@ -24,7 +19,7 @@ export const BulletPointInput = ({ onChange, value, type, ...props }) => {
 
   const propsObj = useMemo(() => {
     return { ...props, value: valueArray };
-  }, [props, value]);
+  }, [props, valueArray]);
 
   const generateEvent = (dat) => ({
     target: {

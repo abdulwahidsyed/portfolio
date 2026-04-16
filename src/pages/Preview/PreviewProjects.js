@@ -80,7 +80,7 @@ export const PreviewProjects = ({ data = [] }) => {
                   </StyledLI>
                 ))}
               </StyledUL>
-              {i != companies[company].length - 1 ? <BasicHR /> : null}
+              {i !== companies[company].length - 1 ? <BasicHR /> : null}
             </StyledProjectCtn>
           ))}
         </StyledSectionLoc>

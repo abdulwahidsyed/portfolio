@@ -1,9 +1,8 @@
-import { useSelector } from "react-redux";
 import { StyledDropdown } from "../Styled";
 import { useTheme } from "styled-components";
 
 export const Dropdown = ({ options, onChange, name, isDisabled, value }) => {
-  const { colorTheme } = useSelector((st) => st.theme);
+  // const { colorTheme } = useSelector((st) => st.theme);
 
   const theme = useTheme();
 
@@ -52,8 +51,8 @@ export const Dropdown = ({ options, onChange, name, isDisabled, value }) => {
         backgroundColor: state.isSelected
           ? theme.dropdownOptionSelectedBG
           : state.isFocused
-          ? theme.dropdownOptionHoverBG
-          : theme.dropdownOptionBG,
+            ? theme.dropdownOptionHoverBG
+            : theme.dropdownOptionBG,
       };
     },
     menu: (provided) => ({

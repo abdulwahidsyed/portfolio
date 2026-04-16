@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { StyledFooter, StyledParagraph } from "../../components/UI/Styled";
 import { mobile } from "../../components/UI/Styled/media-queries";
-import { Button } from "../../components/UI/Button/Button";
 import ReactToPrint from "react-to-print";
 
 export const PreviewFooter = ({ printRef }) => {

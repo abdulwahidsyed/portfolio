@@ -16,7 +16,6 @@ import {
   updateSkills,
   updateWorkExperience,
   updateVisibleComponent,
-  generateSummary,
   inputsSelector,
 } from "../../redux/inputsSlice/inputs.slice";
 import BasicFieldsCtn from "./BasicFieldsCtn/BasicFieldsCtn";
@@ -28,7 +27,6 @@ import { useCallback, useRef } from "react";
 import { FooterHome } from "./FooterEdit";
 import { NavigatorButtons } from "../../components/NavigatorButtons/NavigatorButtons";
 import { useNavigate } from "react-router-dom";
-import { generateSummaryHelper } from "./edit.helper";
 import { routePaths } from "../../constants/paths.constants";
 
 const Edit = () => {
@@ -65,7 +63,6 @@ const Edit = () => {
   };
 
   const addNewSkillInput = () => {
-    const data = {};
     dispatch(addNewSkill());
   };
 
@@ -187,13 +184,13 @@ const Edit = () => {
       return;
     }
 
-    const dat = {
-      basicInputs,
-      educationInputs,
-      workExpInputs,
-      skillsInputs,
-      projectInputs,
-    };
+    // const dat = {
+    //   basicInputs,
+    //   educationInputs,
+    //   workExpInputs,
+    //   skillsInputs,
+    //   projectInputs,
+    // };
 
     // if (!summary) {
     //   const payload = generateSummaryHelper(dat);
@@ -226,7 +223,7 @@ const Edit = () => {
         observer.observe(ref.current);
       }
     });
-  }, []);
+  }, [dispatch, refs]);
 
   return (
     <StyledLayout ref={callbackRef}>

@@ -1,7 +1,7 @@
 import ReactDatePicker from "react-datepicker";
 import styled from "styled-components";
 import Select from "react-select";
-import { desktop, laptop, mobile, tablet } from "./media-queries";
+// import { desktop, laptop, mobile, tablet } from "./media-queries";
 
 export const StyledInput = styled.input`
   font-size: 14px;
@@ -20,7 +20,9 @@ export const StyledInput = styled.input`
     $isError ? "rgba(255, 203, 203, 0.17)" : theme.inputBackground};
   border: ${({ $isError, theme }) =>
     $isError ? "1px solid #a30000" : theme.inputBorder};
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
   backdrop-filter: blur(10px);
 
   appearance: none;
@@ -65,7 +67,9 @@ export const StyledTextarea = styled.textarea`
   border: ${({ $isError, theme }) =>
     $isError ? theme.commonDangerInputBorder : theme.inputBorder};
 
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 
   appearance: none;
   -webkit-appearance: none;
@@ -104,7 +108,9 @@ export const StyledDatePicker = styled(ReactDatePicker)`
   border: ${({ $isError, theme }) =>
     $isError ? "1px solid #a30000" : theme.inputBorder};
 
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 
   appearance: none;
   -webkit-appearance: none;

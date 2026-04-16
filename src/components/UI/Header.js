@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { changeSideDrawer } from "../../redux/masterSlice/master.slice";
 
-const Header = ({}) => {
+const Header = () => {
   const dispatch = useDispatch();
 
   const onClickHamburger = () => {

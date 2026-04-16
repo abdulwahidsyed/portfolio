@@ -68,14 +68,6 @@ const StyledFlex = styled.div`
   }
 `;
 
-const StyledUL = styled.ul`
-  padding-left: 16px;
-  margin-top: 10px;
-`;
-const StyledLI = styled.li`
-  margin: 4px 0;
-`;
-
 const StyledPDBox = styled.div`
   margin-top: 10px;
 `;

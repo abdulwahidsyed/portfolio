@@ -80,7 +80,7 @@ export const SideDrawer = () => {
     };
 
     return obj;
-  }, [colorTheme, sectionShadowTheme, inputShadowTheme]);
+  }, []);
 
   return (
     <StyledCtn>

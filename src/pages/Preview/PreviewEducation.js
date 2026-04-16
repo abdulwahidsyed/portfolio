@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import {
   StyledBox,
-  StyledHeading,
   StyledHeadingMedium,
   StyledParagraph,
   StyledParagraphBold,

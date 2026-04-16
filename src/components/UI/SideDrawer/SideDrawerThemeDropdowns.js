@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Input from "../Input/Input";
 import { StyledInputLabel } from "../Styled";
-import { useSelector } from "react-redux";
 
 export const SideDrawerThemeDropdowns = ({
   colorTheme,
@@ -51,7 +50,7 @@ export const SideDrawerThemeDropdowns = ({
           onChange={onChange}
           name="sectionShadowTheme"
           value={options.sectionShadowTheme.find(
-            (el) => el.value === sectionShadowTheme
+            (el) => el.value === sectionShadowTheme,
           )}
         />
       </>
@@ -65,7 +64,7 @@ export const SideDrawerThemeDropdowns = ({
           onChange={onChange}
           name="inputShadowTheme"
           value={options.inputShadowTheme.find(
-            (el) => el.value === inputShadowTheme
+            (el) => el.value === inputShadowTheme,
           )}
         />
       </>

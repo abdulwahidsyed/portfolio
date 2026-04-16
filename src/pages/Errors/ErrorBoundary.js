@@ -1,14 +1,13 @@
-import React, { Component, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { Component } from "react";
 import { ErrorPageMain } from "./ErrorPageMain";
 
-function NavigateOnError() {
-  let navigate = useNavigate();
-  useEffect(() => {
-    navigate("/"); // Navigate to the error page
-  }, []);
-  return null;
-}
+// function NavigateOnError() {
+//   let navigate = useNavigate();
+//   useEffect(() => {
+//     navigate("/"); // Navigate to the error page
+//   }, []);
+//   return null;
+// }
 
 class ErrorBoundary extends Component {
   state = {

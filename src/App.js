@@ -17,18 +17,12 @@ function App() {
     <ThemeProvider theme={theme}>
       <StyledApp className="App">
         <Header />
-        {/* <StyledCtn> */}
         <Router />
-        {/* </StyledCtn> */}
         <SideDrawer />
         <Backdrop show={showBackdrop} />
       </StyledApp>
     </ThemeProvider>
   );
 }
-
-const StyledCtn = styled.div`
-  backdrop-filter: blur(4px);
-`;
 
 export default App;

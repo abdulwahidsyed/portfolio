@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   BASIC_INPUTS_META,
   SKILLS_INPUTS_META,
-  NEW_SKILLS_INPUTS_META,
   EDUCATION_INPUTS_META,
   WORK_EXP_INPUTS_META,
   PROJECT_INPUTS_META,

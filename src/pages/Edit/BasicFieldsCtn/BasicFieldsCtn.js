@@ -18,7 +18,7 @@ const BasicFieldsCtn = ({ basicInputs, onChange, basicRef }) => {
         {basicInputs.map((input, i) => (
           <StyledInpBoxLoc
             key={input.name}
-            isLastChild={i == basicInputs.length - 1}
+            isLastChild={i === basicInputs.length - 1}
           >
             <StyledInputLabel>{input.label}</StyledInputLabel>
             <Input {...input} onChange={onChange} />

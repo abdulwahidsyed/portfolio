@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { StyledParagraph, StyledFooter } from "../../components/UI/Styled";
 import { mobile } from "../../components/UI/Styled/media-queries";
-import { StyledButton } from "../../components/UI/Styled/Button.styled";
 
 export const FooterHome = ({ onClick, selected }) => {
   const items = {
@@ -18,7 +17,7 @@ export const FooterHome = ({ onClick, selected }) => {
         {Object.keys(items).map((el, i) => (
           <StyledParagraphLoc
             onClick={() => onClick(el)}
-            selected={el == selected}
+            selected={el === selected}
           >
             {items[el]}
           </StyledParagraphLoc>

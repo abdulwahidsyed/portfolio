@@ -27,6 +27,7 @@ const Generator = () => {
 
   useEffect(() => {
     initialCall();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // useEffect(() => {
@@ -46,7 +47,7 @@ const Generator = () => {
     navigate("/");
   };
 
-  const data = useMemo(() => {}, []);
+  // const data = useMemo(() => {}, []);
 
   return (
     <StyledCtn>

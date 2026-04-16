@@ -4,8 +4,6 @@ import {
   StyledInpBox,
   StyledInputLabel,
   StyledInputSection,
-  StyledMatrixChild,
-  StyledMatrixCtn,
 } from "../../../components/UI/Styled";
 import { Button } from "../../../components/UI/Button/Button";
 import Input from "../../../components/UI/Input/Input";
@@ -16,10 +14,7 @@ export const SkillsCtn = ({
   addNewSkillInput,
   inputsMatrix,
   onChange,
-  removeSkillInput,
 }) => {
-  console.log("abdul inputsMatrix", inputsMatrix);
-
   return (
     <Container ref={skillsRef}>
       <StyledFlex>
@@ -62,11 +57,6 @@ export default memo(SkillsCtn);
 
 const Container = styled(StyledInputSection)`
   display: block;
-`;
-
-const StyledRemoveBtn = styled(Button)`
-  display: block;
-  margin-left: auto;
 `;
 
 const StyledFlex = styled.div`
