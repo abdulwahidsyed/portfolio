@@ -20,9 +20,9 @@ export const Dropdown = ({ options, onChange, name, isDisabled, value }) => {
         opacity: state.isDisabled ? 0.5 : 1,
       };
     },
-    valueContainer: (provided) => ({
-      ...provided,
-    }),
+    // valueContainer: (provided) => ({
+    //   ...provided,
+    // }),
     dropdownIndicator: (provided, state) => ({
       ...provided,
       color: "black",

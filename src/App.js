@@ -6,7 +6,7 @@ import { StyledApp } from "./components/UI/Styled/Master.styled";
 import Router from "./Router";
 import { Backdrop } from "./components/UI/Backdrop";
 import { useThemes } from "./theme/useThemes";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 
 function App() {
   const { showBackdrop } = useSelector((st) => st.master);
