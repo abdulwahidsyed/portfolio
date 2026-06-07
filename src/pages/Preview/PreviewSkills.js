@@ -6,12 +6,14 @@ import {
 } from "../../components/UI/Styled";
 
 export const PreviewSkills = ({ data = [] }) => {
+  console.log("Abdul skills data", data);
+
   return (
     <StyledCtn>
       <StyledHeadingMedium>Skills</StyledHeadingMedium>
       {data.map((el) => (
         <StyledBox>
-          <StyledParagraphBold>{el.label} :</StyledParagraphBold>
+          <StyledParagraphBoldLoc>{el.label}: </StyledParagraphBoldLoc>
           <StyledParagraph>{el.value}</StyledParagraph>
         </StyledBox>
       ))}
@@ -26,10 +28,17 @@ const StyledCtn = styled.div`
   }
 `;
 
+const StyledParagraphBoldLoc = styled(StyledParagraphBold)`
+  white-space: nowrap;
+  display: inline;
+  // font-size: 16px;
+`;
+
 const StyledBox = styled.div`
-  display: flex;
-  gap: 4px;
+  margin: 16px 0;
+
   & p {
-    margin: 10px 0;
+    display: inline;
+    line-height: 24px;
   }
 `;

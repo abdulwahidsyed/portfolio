@@ -6,7 +6,8 @@ export const StyledSection = styled.div`
   padding: 20px 30px;
   backdrop-filter: blur(3px);
   box-shadow: ${({ theme }) => theme.sectionBoxShadow};
-  background: ${({ theme }) => theme.sectionBackground};
+  // checkHere
+  // background: ${({ theme }) => theme.sectionBackground};
 
   ${mobile`
     padding: 20px 8px 8px 8px;
@@ -29,7 +30,7 @@ export const StyledBox = styled.div`
   border: 1px solid #00000029;
   backdrop-filter: blur(3px);
   box-shadow: ${({ theme }) => theme.sectionBoxShadow};
-  background: ${({ theme }) => theme.sectionBackground};
+  // background: ${({ theme }) => theme.sectionBackground};
   padding: 20px 20px;
   margin-bottom: 40px;
   // background: linear-gradient(45deg, #6564645e, transparent);

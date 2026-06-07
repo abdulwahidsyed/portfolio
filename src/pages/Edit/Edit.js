@@ -4,7 +4,7 @@ import { StyledHeadingBig, StyledLayout } from "../../components/UI/Styled";
 import {
   addNewEducation,
   addNewProject,
-  addNewSkill,
+  addNewSkillField,
   addWorkExperience,
   removeEducation,
   removeProject,
@@ -23,11 +23,13 @@ import SkillsCtn from "./SkillsCtn/SkillsCtn";
 import EducationSection from "./EducationSection/EducationSection";
 import WorkExperienceCtn from "./WorkExperienceCtn/WorkExperienceCtn";
 import ProjectsCtn from "./ProjectsCtn/ProjectsCtn";
-import { useCallback, useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { FooterHome } from "./FooterEdit";
 import { NavigatorButtons } from "../../components/NavigatorButtons/NavigatorButtons";
 import { useNavigate } from "react-router-dom";
 import { routePaths } from "../../constants/paths.constants";
+import { EnterKeyAchievements } from "./EnterKeyAchievements/EnterKeyAchievements";
+import { EditCompanyCtn } from "./EditCompanyCtn";
 
 const Edit = () => {
   const dispatch = useDispatch();
@@ -35,19 +37,23 @@ const Edit = () => {
 
   const basicRef = useRef();
   const skillsRef = useRef();
-  const projectRef = useRef();
+  const compantRef = useRef();
   const workExpRef = useRef();
   const educationRef = useRef();
 
-  const refs = [basicRef, skillsRef, projectRef, workExpRef, educationRef];
+  const refs = useMemo(() => {
+    return [basicRef, skillsRef, compantRef, workExpRef, educationRef];
+  }, [basicRef, skillsRef, compantRef, workExpRef, educationRef]);
 
   const {
     basicInputs,
     educationInputs,
     workExpInputs,
     skillsInputs,
+    keyAchievements,
     projectInputs,
     visibleComponent,
+    orgInputs,
   } = useSelector(inputsSelector);
 
   const onChange = (e) => {
@@ -60,10 +66,6 @@ const Edit = () => {
     }));
 
     dispatch(updateBasicInputs(dat));
-  };
-
-  const addNewSkillInput = () => {
-    dispatch(addNewSkill());
   };
 
   const removeSkillInput = (i) => {
@@ -235,13 +237,16 @@ const Edit = () => {
       />
       <SkillsCtn
         skillsRef={skillsRef}
-        addNewSkillInput={addNewSkillInput}
         inputsMatrix={skillsInputs}
         onChange={onChangeSkills}
         removeSkillInput={removeSkillInput}
       />
+      <EnterKeyAchievements
+        inputObj={keyAchievements}
+        // keyAchievements={keyAchievements}
+      />
+      {/* <EditCompanyCtn compantRef={compantRef} orgInputs={orgInputs} /> */}
       <ProjectsCtn
-        projectRef={projectRef}
         inputsMatrix={projectInputs}
         addNewProject={addNewProjectLoc}
         removeProject={removeProjectLoc}

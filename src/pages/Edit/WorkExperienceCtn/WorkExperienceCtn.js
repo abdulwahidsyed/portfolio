@@ -31,13 +31,10 @@ const WorkExperienceCtn = ({
         {inputsMatrix.map((inputs, i) => (
           <StyledMatrixChild newlyAdded={i > 0}>
             {inputs.map((inp) => (
-              <StyledInpBox key={inp.name}>
-                <StyledInputLabel>{inp.label}</StyledInputLabel>
-                <Input
-                  {...inp}
-                  onChange={(e, ...rest) => onChange(e, i, ...rest)}
-                />
-              </StyledInpBox>
+              <Input
+                {...inp}
+                onChange={(e, ...rest) => onChange(e, i, ...rest)}
+              />
             ))}
             {i > 0 ? (
               <StyledRemoveBtn

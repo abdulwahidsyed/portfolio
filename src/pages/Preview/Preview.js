@@ -16,6 +16,7 @@ import {
   updateAllInputs,
 } from "../../redux/inputsSlice/inputs.slice";
 import { PreviewWorkExp } from "./PreviewWorkExp";
+import { PreviewKeyAchievements } from "./PreviewKeyAchievements";
 
 const Generator = () => {
   const navigate = useNavigate();
@@ -47,13 +48,12 @@ const Generator = () => {
     navigate("/");
   };
 
-  // const data = useMemo(() => {}, []);
-
   return (
     <StyledCtn>
       <PrintCtn ref={printRef}>
         <PreviewHeading data={summary?.basicDetails} />
         <PreviewSkills data={skillsInputs} />
+        <PreviewKeyAchievements keyAchievements={summary?.keyAchievements} />
         <PreviewProjects data={summary?.projects} />
         <PreviewWorkExp data={summary?.workExperience} />
         <PreviewEducation data={summary?.education} />

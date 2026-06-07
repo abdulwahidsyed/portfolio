@@ -8,47 +8,26 @@ import {
 import { Button } from "../../../components/UI/Button/Button";
 import Input from "../../../components/UI/Input/Input";
 import { memo } from "react";
+import { useDispatch } from "react-redux";
+import { addNewSkillField } from "../../../redux/inputsSlice/inputs.slice";
 
-export const SkillsCtn = ({
-  skillsRef,
-  addNewSkillInput,
-  inputsMatrix,
-  onChange,
-}) => {
+export const SkillsCtn = ({ skillsRef, inputsMatrix, onChange }) => {
+  const dispatch = useDispatch();
+
+  const addNewSkillInput = () => {
+    dispatch(addNewSkillField());
+  };
+
   return (
     <Container ref={skillsRef}>
       <StyledFlex>
         <StyledHeadingMedium className="mb-20">Skills</StyledHeadingMedium>
-        <Button onClick={addNewSkillInput}>Add New Skill</Button>
       </StyledFlex>
 
       {inputsMatrix.map((inp, i) => (
-        <StyledInpBox key={inp.name}>
-          <StyledInputLabel>{inp.label}</StyledInputLabel>
-          <Input {...inp} onChange={(e) => onChange(e, i)} />
-        </StyledInpBox>
+        <Input {...inp} onChange={(e) => onChange(e, i)} />
       ))}
-
-      {/* <StyledMatrixCtn>
-        {inputsMatrix.map((inputs, i) => (
-          <StyledMatrixChild key={inputs[0].key} newlyAdded={i > 0}>
-            {inputs.map((inp) => (
-              <StyledInpBox key={inp.name}>
-                <StyledInputLabel>{inp.label}</StyledInputLabel>
-                <Input {...inp} onChange={(e) => onChange(e, i)} />
-              </StyledInpBox>
-            ))}
-            {i > 0 ? (
-              <StyledRemoveBtn
-                onClick={() => removeSkillInput(i)}
-                variant="red"
-              >
-                Remove
-              </StyledRemoveBtn>
-            ) : null}
-          </StyledMatrixChild>
-        ))}
-      </StyledMatrixCtn> */}
+      <BtnLoc onClick={addNewSkillInput}>Add New Skill</BtnLoc>
     </Container>
   );
 };
@@ -57,6 +36,10 @@ export default memo(SkillsCtn);
 
 const Container = styled(StyledInputSection)`
   display: block;
+`;
+
+const BtnLoc = styled(Button)`
+  margin-left: auto;
 `;
 
 const StyledFlex = styled.div`

@@ -1,28 +1,27 @@
 import styled from "styled-components";
-import { Button } from "../../../components/UI/Button/Button";
-import Input from "../../../components/UI/Input/Input";
 import {
   StyledHeadingMedium,
   StyledInputSection,
-  StyledMatrixChild,
   StyledMatrixCtn,
-} from "../../../components/UI/Styled";
-import { memo } from "react";
+} from "../../components/UI/Styled";
+import { Button } from "../../components/UI/Button/Button";
 
-const ProjectsCtn = ({
-  inputsMatrix,
-  addNewProject,
-  removeProject,
-  onChange,
+export const EditCompanyCtn = ({
+  compantRef,
+  addNewOrg,
+  orgInputs,
+  ...props
 }) => {
   return (
-    <Container>
+    <Container ref={compantRef}>
       <StyledFlex>
-        <StyledHeadingMedium className="mb-20">Projects</StyledHeadingMedium>
-        <Button onClick={addNewProject}>Add New Project</Button>
+        <StyledHeadingMedium className="mb-20">
+          Organizations
+        </StyledHeadingMedium>
+        <Button onClick={addNewOrg}>Add New Organization</Button>
       </StyledFlex>
 
-      <StyledMatrixCtn>
+      {/* <StyledMatrixCtn>
         {inputsMatrix.map((inputs, i) => (
           <StyledMatrixChild key={inputs[0].key} newlyAdded={i > 0}>
             {inputs.map((inp) => (
@@ -35,16 +34,13 @@ const ProjectsCtn = ({
             ) : null}
           </StyledMatrixChild>
         ))}
-      </StyledMatrixCtn>
+      </StyledMatrixCtn> */}
     </Container>
   );
 };
 
-export default memo(ProjectsCtn);
-
 const Container = styled(StyledInputSection)`
   display: block;
-  margin: 40px 0;
 `;
 
 const StyledRemoveBtn = styled(Button)`
@@ -58,7 +54,7 @@ const StyledFlex = styled.div`
   justify-content: space-between;
   margin-bottom: 20px;
 
-  > * {
-    margin: 0 !important;
-  }
+  //   > * {
+  //     margin: 0 !important;
+  //   }
 `;

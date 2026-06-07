@@ -5,14 +5,19 @@ import {
   EDUCATION_INPUTS_META,
   WORK_EXP_INPUTS_META,
   PROJECT_INPUTS_META,
+  BASIC_INPUT,
+  KEY_ACHEIVEMENTS_META,
+  ORG_INPUTS_META,
 } from "../../pages/Edit/edit.helper";
 
 const initialState = {
   basicInputs: [...BASIC_INPUTS_META],
   skillsInputs: [...SKILLS_INPUTS_META],
+  keyAchievements: { ...KEY_ACHEIVEMENTS_META },
   educationInputs: [[...EDUCATION_INPUTS_META]],
   workExpInputs: [[...WORK_EXP_INPUTS_META]],
   projectInputs: [[...PROJECT_INPUTS_META]],
+  orgInputs: [...ORG_INPUTS_META],
   visibleComponent: "",
   summary: null,
 };
@@ -30,9 +35,14 @@ const inputsSlice = createSlice({
       state.basicInputs = action.payload;
     },
 
-    // new skills Start
-    addNewSkill: (state, action) => {
-      state.skillsInputs.push(action.payload);
+    // _____________ new skills Start ________________________________________________
+    addNewSkillField: (state, action) => {
+      const k = {
+        ...BASIC_INPUT,
+        name: `new-input-${state.skillsInputs.length + 1}`,
+        label: "New Skill",
+      };
+      state.skillsInputs.push(k);
     },
     removeSkill: (state, action) => {
       const index = action.payload;
@@ -41,9 +51,33 @@ const inputsSlice = createSlice({
     updateSkills: (state, action) => {
       state.skillsInputs = action.payload;
     },
-    // new skills End
 
-    // projects start
+    // _____________ keyAchievements start ________________________________________________
+    updateKeyAcheivements: (state, action) => {
+      state.keyAchievements.value = action.payload;
+    },
+
+    // _____________ organizations ________________________________________________
+    addNewOrg: (state, action) => {
+      const lastOrgId = state.orgInputs[state.orgInputs.length - 1];
+      const newOrg = {
+        ...ORG_INPUTS_META,
+        id: lastOrgId + 1,
+      };
+      debugger;
+      state.orgInputs.push(newOrg);
+    },
+    removeOrg: (state, action) => {
+      const index = action.payload;
+      debugger;
+      state.orgInputs.splice(index, 1);
+    },
+    updateOrg: (state, action) => {
+      debugger;
+      state.orgInputs = action.payload;
+    },
+
+    // _____________ projects ________________________________________________
     addNewProject: (state, action) => {
       state.projectInputs.push([...PROJECT_INPUTS_META]);
     },
@@ -54,9 +88,8 @@ const inputsSlice = createSlice({
     updateNewProject: (state, action) => {
       state.projectInputs = action.payload;
     },
-    // projects end
 
-    // work experience start
+    // _____________ Work Experience ________________________________________________
     addWorkExperience: (state, action) => {
       state.workExpInputs.push([...WORK_EXP_INPUTS_META]);
     },
@@ -67,9 +100,8 @@ const inputsSlice = createSlice({
     updateWorkExperience: (state, action) => {
       state.workExpInputs = action.payload;
     },
-    // work experience end
 
-    // new Education Start
+    // _____________ new Education ________________________________________________
     addNewEducation: (state, action) => {
       state.educationInputs.push([...EDUCATION_INPUTS_META]);
     },
@@ -83,9 +115,8 @@ const inputsSlice = createSlice({
     updateVisibleComponent: (state, action) => {
       state.visibleComponent = action.payload;
     },
-    // new Education ends
 
-    // generateSummary
+    // _____________ generateSummary ________________________________________________
     generateSummary: (state, action) => {
       state.summary = action.payload;
     },
@@ -99,9 +130,15 @@ export const {
 
   updateBasicInputs,
 
-  addNewSkill,
+  addNewSkillField,
   removeSkill,
   updateSkills,
+
+  updateKeyAcheivements,
+
+  addNewOrg,
+  removeOrg,
+  updateOrg,
 
   addNewProject,
   removeProject,

@@ -3,8 +3,6 @@ import styled from "styled-components";
 import {
   StyledFlexSection,
   StyledHeadingMedium,
-  StyledInpBox,
-  StyledInputLabel,
   StyledInputSection,
 } from "../../../components/UI/Styled";
 import { memo } from "react";
@@ -15,15 +13,18 @@ const BasicFieldsCtn = ({ basicInputs, onChange, basicRef }) => {
     <StyledCtn ref={basicRef}>
       <StyledHeadingMedium className="mb-20">Basic fields</StyledHeadingMedium>
       <StyledFlexSectionLoc style={{ margin: "0 0 10px 0 " }}>
-        {basicInputs.map((input, i) => (
-          <StyledInpBoxLoc
-            key={input.name}
-            isLastChild={i === basicInputs.length - 1}
-          >
-            <StyledInputLabel>{input.label}</StyledInputLabel>
-            <Input {...input} onChange={onChange} />
-          </StyledInpBoxLoc>
-        ))}
+        {basicInputs.map((input, i) => {
+          const isLastChild = i === basicInputs.length - 1;
+          return (
+            <Input
+              {...input}
+              onChange={onChange}
+              stylesObj={{
+                flexBasis: isLastChild ? "100%" : "calc(50% - 20px)",
+              }}
+            />
+          );
+        })}
       </StyledFlexSectionLoc>
     </StyledCtn>
   );
@@ -42,6 +43,8 @@ const StyledFlexSectionLoc = styled(StyledFlexSection)`
   row-gap: 0;
 `;
 
-const StyledInpBoxLoc = styled(StyledInpBox)`
+const StyledInpBoxLoc = styled(Input)`
   flex-basis: ${(props) => (props.isLastChild ? "100%" : "calc(50% - 20px)")};
+  // flex-basis: ${(props) =>
+    props.isLastChild ? "100%" : "calc(50% - 20px)"};
 `;

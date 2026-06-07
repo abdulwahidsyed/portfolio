@@ -23,7 +23,7 @@ export const PreviewHeading = ({ data = {} }) => {
           {data.linkedinProfile && (
             <StyledLI>
               linkedin:{" "}
-              <StyledAnchor target="_black" href={data.linkedinProfile}>
+              <StyledAnchor target="_blank" href={data.linkedinProfile}>
                 {data.linkedinProfile}
               </StyledAnchor>
             </StyledLI>

@@ -7,8 +7,13 @@ import {
   StyledParagraphBold,
   StyledSection,
 } from "../../components/UI/Styled";
+import { SectionTitle } from "./prewComponents/SectionTitle";
 
 export const PreviewWorkExp = ({ data = [] }) => {
+  if (!data.length) {
+    return;
+  }
+
   return (
     <StyledCtn>
       <StyledHeadingMedium>Work Experience</StyledHeadingMedium>
@@ -23,23 +28,39 @@ export const PreviewWorkExp = ({ data = [] }) => {
               <StyledParagraphBold>{el.duration}</StyledParagraphBold>
             </StyledFlex>
           ) : null}
-          <StyledPDBox>
+          <SectionTitle
+            title={"Project Description"}
+            show={el.description?.length}
+          >
+            <StyledPDBox>
+              {el.description.map((desc) => (
+                <StyledParagraphDesc>{desc}</StyledParagraphDesc>
+              ))}
+            </StyledPDBox>
+          </SectionTitle>
+          {/* <StyledPDBox>
             {el.description.map((desc) => (
               <StyledParagraph>{desc}</StyledParagraph>
             ))}
-          </StyledPDBox>
-          <StyledParagraphBold style={{ marginTop: "26px" }}>
-            Github:{" "}
-            <StyledAnchor target="_black" href={el.github}>
-              {el.github}
-            </StyledAnchor>
-          </StyledParagraphBold>
-          <StyledParagraphBold>
-            Hosting url:{" "}
+          </StyledPDBox> */}
+          {el.github ? (
+            <StyledParagraphBold style={{ marginTop: "26px" }}>
+              Github:{" "}
+              <StyledAnchor target="_black" href={el.github}>
+                {el.github}
+              </StyledAnchor>
+            </StyledParagraphBold>
+          ) : null}
+
+          <SectionTitle
+            title={"Hosting url"}
+            show={el.deployedURL?.length}
+            inline
+          >
             <StyledAnchor target="_black" href={el.deployedURL}>
               {el.deployedURL}
             </StyledAnchor>
-          </StyledParagraphBold>
+          </SectionTitle>
         </StyledSectionLoc>
       ))}
     </StyledCtn>
@@ -70,4 +91,8 @@ const StyledFlex = styled.div`
 
 const StyledPDBox = styled.div`
   margin-top: 10px;
+`;
+
+const StyledParagraphDesc = styled(StyledParagraph)`
+  margin-bottom: 4px;
 `;

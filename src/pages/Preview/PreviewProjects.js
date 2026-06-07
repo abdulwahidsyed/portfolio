@@ -9,6 +9,10 @@ import {
 } from "../../components/UI/Styled";
 import { useMemo } from "react";
 import { BasicHR } from "../../components/UI/HR/BasicHR";
+// import { SkillUL } from "./prewComponents/SkillUL";
+import { ProjectNameRole } from "./prewComponents/ProjectNameRole";
+import { SectionTitle } from "./prewComponents/SectionTitle";
+import { SkillUL } from "./prewComponents/SkillUL";
 
 export const PreviewProjects = ({ data = [] }) => {
   const companies = useMemo(() => {
@@ -21,9 +25,11 @@ export const PreviewProjects = ({ data = [] }) => {
   }, [data]);
 
   const generateDuration = (arr) => {
-    if (arr.length <= 1) return arr[0].projectDuration;
-    const joinedDate = arr[arr.length - 1].projectDuration.split("to")[0];
-    const releivingDate = arr[0].projectDuration.split("to")[1];
+    if (arr.length <= 1) {
+      return arr[0].duration;
+    }
+    const joinedDate = arr[arr.length - 1].duration.split("-")[0];
+    const releivingDate = arr[0].duration.split("-")[1];
     return `${joinedDate} - ${releivingDate}`;
   };
 
@@ -35,51 +41,51 @@ export const PreviewProjects = ({ data = [] }) => {
         <StyledSectionLoc>
           <StyledHeadingBox>
             <StyledPGrayaragraphSmallLoc>
-              Project Name
+              Organization
             </StyledPGrayaragraphSmallLoc>
             <StyledHeadingSmall>{company}</StyledHeadingSmall>
             <StyledParagraphBold style={{ margin: 0 }}>
               {generateDuration(companies[company])}
             </StyledParagraphBold>
-            <BasicHR style={{ margin: "36px 0 44px 0" }} />
+            <BasicHR style={{ margin: "20px 0px 30px" }} />
           </StyledHeadingBox>
 
           {companies[company].map((project, i) => (
             <StyledProjectCtn>
-              <StyledFlex>
-                <StyledPGrayaragraphSmallLoc>
-                  Project Name
-                </StyledPGrayaragraphSmallLoc>
-                <StyledHeadingSmall>{project.projectName}</StyledHeadingSmall>
-                <StyledHeadingSmall>{project.role}</StyledHeadingSmall>
-              </StyledFlex>
+              <ProjectNameRole project={project} />
 
-              <StyledParagraphBold>Project Description</StyledParagraphBold>
-              <StyledPDBox>
-                {project.projectDescription.map((desc) => (
-                  <StyledParagraph>{desc}</StyledParagraph>
-                ))}
-              </StyledPDBox>
-              <StyledParagraphBold style={{ marginTop: "26px" }}>
-                Skills used
-              </StyledParagraphBold>
-              <StyledUL>
-                {project.skillsUsed.map((r) => (
-                  <StyledLI>
-                    <StyledParagraph>{r}</StyledParagraph>
-                  </StyledLI>
-                ))}
-              </StyledUL>
-              <StyledParagraphBold style={{ marginTop: "26px" }}>
-                Roles & Responsibilities
-              </StyledParagraphBold>
-              <StyledUL>
-                {project.rolesAndResponsibilities.map((r) => (
-                  <StyledLI>
-                    <StyledParagraph>{r}</StyledParagraph>
-                  </StyledLI>
-                ))}
-              </StyledUL>
+              <SectionTitle
+                title={"Project Description"}
+                show={project.projectDescription?.length}
+              >
+                <StyledPDBox>
+                  {project.projectDescription.map((desc) => (
+                    <StyledParagraphDesc>{desc}</StyledParagraphDesc>
+                  ))}
+                </StyledPDBox>
+              </SectionTitle>
+
+              <SectionTitle
+                title={"Tech stack"}
+                show={project.skillsUsed?.length}
+                inline={project.skillsUsed.length <= 2}
+              >
+                <SkillUL skillsUsed={project.skillsUsed} />
+              </SectionTitle>
+
+              <SectionTitle
+                title={"Roles & Responsibilities"}
+                show={project.rolesAndResponsibilities?.length}
+              >
+                <StyledUL>
+                  {project.rolesAndResponsibilities.map((r) => (
+                    <StyledLI>
+                      <StyledParagraphDesc>{r}</StyledParagraphDesc>
+                    </StyledLI>
+                  ))}
+                </StyledUL>
+              </SectionTitle>
+
               {i !== companies[company].length - 1 ? <BasicHR /> : null}
             </StyledProjectCtn>
           ))}
@@ -106,17 +112,6 @@ const StyledSectionLoc = styled(StyledSection)`
   border: none;
 `;
 
-const StyledFlex = styled.div`
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-top: 30px;
-
-  & h2 {
-    margin: 0 0 0px 0;
-  }
-`;
-
 const StyledUL = styled.ul`
   padding-left: 16px;
   margin-top: 10px;
@@ -136,4 +131,8 @@ const StyledHeadingBox = styled.div`
 
 const StyledProjectCtn = styled.div`
   padding-left: 40px;
+`;
+
+const StyledParagraphDesc = styled(StyledParagraph)`
+  margin-bottom: 4px;
 `;

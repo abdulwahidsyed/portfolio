@@ -29,10 +29,7 @@ const EducationSection = ({
         {inputsMatrix.map((inputs, i) => (
           <StyledMatrixChild key={inputs[0].key} newlyAdded={i > 0}>
             {inputs.map((inp) => (
-              <StyledInpBox key={inp.name}>
-                <StyledInputLabel>{inp.label}</StyledInputLabel>
-                <Input {...inp} onChange={(e) => onChange(e, i)} />
-              </StyledInpBox>
+              <Input {...inp} onChange={(e) => onChange(e, i)} />
             ))}
             {i > 0 ? (
               <StyledRemoveBtn onClick={() => removeEducation(i)} variant="red">
